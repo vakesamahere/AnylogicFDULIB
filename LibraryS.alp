@@ -171,7 +171,7 @@
 					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="true">
 						<Type><![CDATA[int]]></Type>        
 						<InitialValue Class="CodeValue">
-							<Code><![CDATA[1]]></Code>
+							<Code><![CDATA[7]]></Code>
 						</InitialValue>
 					</Properties>
 				</Variable>
@@ -301,6 +301,45 @@
 						</InitialValue>
 					</Properties>
 				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1723554982238</Id>
+					<Name><![CDATA[termBefore]]></Name>
+					<X>-450</X><Y>150</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1723559674520</Id>
+					<Name><![CDATA[startTime]]></Name>
+					<X>-450</X><Y>100</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[3]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1723559674518</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
 				<Variable Class="CollectionVariable">
 					<Id>1723299045259</Id>
 					<Name><![CDATA[bookKeepings]]></Name>
@@ -338,7 +377,7 @@
 						<OccurrenceAtTime>true</OccurrenceAtTime>
 						<OccurrenceDate>1723190400000</OccurrenceDate>
 						<OccurrenceTime Class="CodeUnitValue">
-							<Code><![CDATA[0]]></Code>
+							<Code><![CDATA[startTime]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[DAY]]></Unit>
 						</OccurrenceTime>
 						<RecurrenceCode Class="CodeUnitValue">
@@ -352,7 +391,8 @@ day+=timeUnit;
 week=day/7;
 weekInTerm=week%20;
 term=week/20;
-if(term!=0&&weekInTerm==0){
+if(term!=termBefore){
+	termBefore=term;
 	traceln("=====Upgrade====");
 	for(Customer c:customers){
 		c.statechart.receiveMessage("upgrade");
@@ -817,50 +857,6 @@ for (int i=0;i<list.size();i++) {
 					<LevelVisibility>DIM_NON_CURRENT</LevelVisibility>
 
 			<Presentation>
-				<Image>
-					<Id>1723442244239</Id>
-					<Name><![CDATA[image]]></Name>
-					<X>10</X><Y>10</Y>
-					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<Width>120</Width>
-					<Height>115.355</Height>
-					<Rotation>0.0</Rotation>
-					<ImageFiles>
-						<ImageResourceReference>
-							<PackageName><![CDATA[librarys]]></PackageName>
-							<ClassName><![CDATA[clock.jpg]]></ClassName>
-						</ImageResourceReference>
-					</ImageFiles>
-					<OriginalSize>false</OriginalSize>
-				</Image>
-				<Text>
-					<Id>1723442290109</Id>
-					<Name><![CDATA[textTimeDisplay]]></Name>
-					<X>150</X><Y>30</Y>
-					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<Rotation>0.0</Rotation>
-					<Color>-16777216</Color>
-					<Text><![CDATA[第__学期__周__天]]></Text>
-					<TextCode><![CDATA[String.format("第%s学期, 第%s周，第%s天",term+1,weekInTerm+1,1+day%7)]]></TextCode>
-					<Font>
-						<Name>SansSerif</Name>
-						<Size>48</Size>
-						<Style>0</Style>
-					</Font>
-					<Alignment>LEFT</Alignment>
-				</Text>
     			<TimeStackChart>
 					<Id>1723449659466</Id>
 					<Name><![CDATA[chart]]></Name>
@@ -1718,6 +1714,67 @@ customers.get(customerShowIndex).viewArea.navigateTo();]]></ActionCode>
 						<LabelText><![CDATA[>>Back]]></LabelText>
 					</ExtendedProperties>
 				</Control>
+				<Group>
+					<Id>1723552876619</Id>
+					<Name><![CDATA[group6]]></Name>
+					<X>280</X><Y>70</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+
+			<Presentation>
+				<Image>
+					<Id>1723442244239</Id>
+					<Name><![CDATA[image]]></Name>
+					<X>-270</X><Y>-60</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Width>120</Width>
+					<Height>115.355</Height>
+					<Rotation>0.0</Rotation>
+					<ImageFiles>
+						<ImageResourceReference>
+							<PackageName><![CDATA[librarys]]></PackageName>
+							<ClassName><![CDATA[clock.jpg]]></ClassName>
+						</ImageResourceReference>
+					</ImageFiles>
+					<OriginalSize>false</OriginalSize>
+				</Image>
+				<Text>
+					<Id>1723442290109</Id>
+					<Name><![CDATA[textTimeDisplay]]></Name>
+					<X>-130</X><Y>-40</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[第__学期__周__天]]></Text>
+					<TextCode><![CDATA[String.format("第%s学期, 第%s周，第%s天",term+1,weekInTerm+1,1+day%7)]]></TextCode>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>48</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+			</Presentation>
+
+				</Group>
 			</Presentation>
 
 				</Level>
@@ -2043,12 +2100,18 @@ customers.get(customerShowIndex).viewArea.navigateTo();]]></ActionCode>
 						<Name><![CDATA[days]]></Name>
 						<Type><![CDATA[int]]></Type>
 					</Parameter>
+					<Parameter>
+						<Name><![CDATA[request]]></Name>
+						<Type><![CDATA[Request]]></Type>
+					</Parameter>
 					<Body><![CDATA[for(BookInstance bi:bookInstances){
 	if(bi.inState(BookInstance.stateInLib)){
 		bi.borrower.connect(customer.portBook);
 		bi.statechart.receiveMessage("lend");
 		customer.bookKeeping.addBook(this, days, bi);
-		customer.libResponse.receive(new Respond(Respond.TYPE_PICKUP,Respond.STATUS_SUCCESS,this,days,0,bi));
+		Respond respond = new Respond(Respond.TYPE_PICKUP,Respond.STATUS_SUCCESS,this,days,0,bi);
+		respond.setRequest(request);
+		customer.libResponse.receive(respond);
 		break;
 	}
 }
@@ -2745,9 +2808,9 @@ historyCustomerCount++;]]></OnReceiveAction>
 					</Points>
 				</Connector>
 				<Connector>
-					<Id>1723318031411</Id>
+					<Id>1723557153059</Id>
 					<Name><![CDATA[connector1]]></Name>
-					<X>0</X><Y>190</Y>
+					<X>0</X><Y>0</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2765,22 +2828,22 @@ historyCustomerCount++;]]></OnReceiveAction>
 					<TargetEmbeddedObjectReference>
 						<PackageName><![CDATA[librarys]]></PackageName>
 						<ClassName><![CDATA[Library]]></ClassName>
-						<ItemName><![CDATA[service1]]></ItemName>
+						<ItemName><![CDATA[hold]]></ItemName>
 					</TargetEmbeddedObjectReference>
 					<TargetConnectableItemReference>
 						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
-						<ClassName><![CDATA[Service]]></ClassName>
+						<ClassName><![CDATA[Hold]]></ClassName>
 						<ItemName><![CDATA[in]]></ItemName>
 					</TargetConnectableItemReference>
 					<Points>
-						<Point><X>270</X><Y>450</Y></Point>
-						<Point><X>400</X><Y>450</Y></Point>
+						<Point><X>270</X><Y>640</Y></Point>
+						<Point><X>320</X><Y>640</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
-					<Id>1723318031413</Id>
-					<Name><![CDATA[connector5]]></Name>
-					<X>0</X><Y>190</Y>
+					<Id>1723557153061</Id>
+					<Name><![CDATA[connector2]]></Name>
+					<X>340</X><Y>640</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2788,11 +2851,44 @@ historyCustomerCount++;]]></OnReceiveAction>
 					<SourceEmbeddedObjectReference>
 						<PackageName><![CDATA[librarys]]></PackageName>
 						<ClassName><![CDATA[Library]]></ClassName>
-						<ItemName><![CDATA[service1]]></ItemName>
+						<ItemName><![CDATA[hold]]></ItemName>
 					</SourceEmbeddedObjectReference>
 					<SourceConnectableItemReference>
 						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
-						<ClassName><![CDATA[Service]]></ClassName>
+						<ClassName><![CDATA[Hold]]></ClassName>
+						<ItemName><![CDATA[out]]></ItemName>
+					</SourceConnectableItemReference>
+					<TargetEmbeddedObjectReference>
+						<PackageName><![CDATA[librarys]]></PackageName>
+						<ClassName><![CDATA[Library]]></ClassName>
+						<ItemName><![CDATA[delay]]></ItemName>
+					</TargetEmbeddedObjectReference>
+					<TargetConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[Delay]]></ClassName>
+						<ItemName><![CDATA[in]]></ItemName>
+					</TargetConnectableItemReference>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>130</X><Y>0</Y></Point>
+					</Points>
+				</Connector>
+				<Connector>
+					<Id>1723557680586</Id>
+					<Name><![CDATA[connector4]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<SourceEmbeddedObjectReference>
+						<PackageName><![CDATA[librarys]]></PackageName>
+						<ClassName><![CDATA[Library]]></ClassName>
+						<ItemName><![CDATA[delay]]></ItemName>
+					</SourceEmbeddedObjectReference>
+					<SourceConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[Delay]]></ClassName>
 						<ItemName><![CDATA[out]]></ItemName>
 					</SourceConnectableItemReference>
 					<TargetEmbeddedObjectReference>
@@ -2806,8 +2902,8 @@ historyCustomerCount++;]]></OnReceiveAction>
 						<ItemName><![CDATA[in]]></ItemName>
 					</TargetConnectableItemReference>
 					<Points>
-						<Point><X>440</X><Y>450</Y></Point>
-						<Point><X>600</X><Y>450</Y></Point>
+						<Point><X>510</X><Y>640</Y></Point>
+						<Point><X>600</X><Y>640</Y></Point>
 					</Points>
 				</Connector>
 			</Connectors>
@@ -3190,6 +3286,9 @@ historyCustomerCount++;]]></OnReceiveAction>
 					<Parameters>
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[agent.statechart.receiveMessage("back from lib");]]></Code>
+							</Value>
 						</Parameter>
 					</Parameters>
 					<ReplicationFlag>false</ReplicationFlag>
@@ -3346,172 +3445,39 @@ historyCustomerCount++;]]></OnReceiveAction>
 					</QuantityColumn>
 				</EmbeddedObject>
 				<EmbeddedObject>
-					<Id>1723318029736</Id>
-					<Name><![CDATA[service1]]></Name>
-					<X>400</X><Y>620</Y>
-					<Label><X>-15</X><Y>-15</Y></Label>
+					<Id>1723557151596</Id>
+					<Name><![CDATA[hold]]></Name>
+					<X>320</X><Y>630</Y>
+					<Label><X>-10</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<ActiveObjectClass>
 						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
-						<ClassName><![CDATA[Service]]></ClassName>
+						<ClassName><![CDATA[Hold]]></ClassName>
 					</ActiveObjectClass>
 					<GenericParameterSubstitute>
 						<GenericParameterSubstituteReference>
 							<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
-							<ClassName><![CDATA[Service]]></ClassName>
-							<ItemName><![CDATA[1412336243141]]></ItemName>
+							<ClassName><![CDATA[Hold]]></ClassName>
+							<ItemName><![CDATA[1412336242940]]></ItemName>
 						</GenericParameterSubstituteReference>
 					</GenericParameterSubstitute>
 					<Parameters>
 						<Parameter>
-							<Name><![CDATA[seizeFromOnePool]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[true]]></Code>
-							</Value>
+							<Name><![CDATA[mode]]></Name>
 						</Parameter>
 						<Parameter>
-							<Name><![CDATA[resourceSets]]></Name>
+							<Name><![CDATA[nEntitiesForSelfBlock]]></Name>
 						</Parameter>
 						<Parameter>
-							<Name><![CDATA[resourcePool]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[resourcePool]]></Code>
-							</Value>
+							<Name><![CDATA[condition]]></Name>
 						</Parameter>
 						<Parameter>
-							<Name><![CDATA[resourceQuantity]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[seizePolicy]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[queueCapacity]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[maximumCapacity]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[true]]></Code>
-							</Value>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[delayTime]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[sendResources]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[destinationType]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[destinationNode]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[destinationAttractor]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[movingGoHome]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[entityLocationQueue]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[entityLocationDelay]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[priority]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[taskMayPreemptOtherTasks]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[taskPreemptionPolicy]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[terminatedTasksEnter]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[suspendResumeEntities]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[wrapUpTaskPolicyType]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[wrapUpTaskPriority]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[wrapUpTaskPreemptionPolicy]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[customizeResourceChoice]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[resourceChoiceCondition]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[resourceSelectionMode]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[resourceRating]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[resourceComparison]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[enableTimeout]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[timeout]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[enablePreemption]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[restoreEntityLocationOnExit]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[forceStatisticsCollection]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[wrapUpUsageState]]></Name>
+							<Name><![CDATA[initiallyBlocked]]></Name>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onExitTimeout]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onExitPreempted]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onSeizeUnit]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[((Teller)unit).requests=(ArrayList<Request>)agent.requestsToLib.clone();
-agent.requestsToLib.clear();]]></Code>
-							</Value>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onEnterDelay]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onAtExit]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onExit]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onTaskTerminated]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onTaskSuspended]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onTaskResumed]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onRemove]]></Name>
 						</Parameter>
 					</Parameters>
 					<ReplicationFlag>false</ReplicationFlag>
@@ -3554,281 +3520,66 @@ agent.requestsToLib.clear();]]></Code>
 					</QuantityColumn>
 				</EmbeddedObject>
 				<EmbeddedObject>
-					<Id>1723318111139</Id>
-					<Name><![CDATA[resourcePool]]></Name>
-					<X>390</X><Y>720</Y>
-					<Label><X>-35</X><Y>-20</Y></Label>
+					<Id>1723557679273</Id>
+					<Name><![CDATA[delay]]></Name>
+					<X>470</X><Y>620</Y>
+					<Label><X>-5</X><Y>-15</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<ActiveObjectClass>
 						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
-						<ClassName><![CDATA[ResourcePool]]></ClassName>
+						<ClassName><![CDATA[Delay]]></ClassName>
 					</ActiveObjectClass>
 					<GenericParameterSubstitute>
 						<GenericParameterSubstituteReference>
 							<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
-							<ClassName><![CDATA[ResourcePool]]></ClassName>
-							<ItemName><![CDATA[1412336243135]]></ItemName>
+							<ClassName><![CDATA[Delay]]></ClassName>
+							<ItemName><![CDATA[1412336242930]]></ItemName>
 						</GenericParameterSubstituteReference>
 					</GenericParameterSubstitute>
 					<Parameters>
 						<Parameter>
 							<Name><![CDATA[type]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[self.RESOURCE_STATIC]]></Code>
-							</Value>
 						</Parameter>
 						<Parameter>
-							<Name><![CDATA[capacityDefinitionType]]></Name>
+							<Name><![CDATA[delayTime]]></Name>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[capacity]]></Name>
 						</Parameter>
 						<Parameter>
-							<Name><![CDATA[capacityBasedOnAttractors]]></Name>
+							<Name><![CDATA[maximumCapacity]]></Name>
 						</Parameter>
 						<Parameter>
-							<Name><![CDATA[capacitySchedule]]></Name>
+							<Name><![CDATA[entityLocation]]></Name>
 						</Parameter>
 						<Parameter>
-							<Name><![CDATA[capacityScheduleOnOff]]></Name>
+							<Name><![CDATA[pushProtocol]]></Name>
 						</Parameter>
 						<Parameter>
-							<Name><![CDATA[capacityOnValue]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[shiftGroupSchedules]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[shiftGroupSizes]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[shiftGroupsPlan]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[destroyExcessUnits]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[newUnit]]></Name>
-							<Value Class="EntityCodeValue">
-								<IsAgentEntity>true</IsAgentEntity>
-								<EntityEmbeddedObject>
-									<ActiveObjectClass>
-										<PackageName><![CDATA[librarys]]></PackageName>
-										<ClassName><![CDATA[Teller]]></ClassName>
-									</ActiveObjectClass>
-									<GenericParameterSubstitute>
-										<GenericParameterSubstituteReference>
-											<PackageName><![CDATA[librarys]]></PackageName>
-											<ClassName><![CDATA[Teller]]></ClassName>
-											<ItemName><![CDATA[1723099002580]]></ItemName>
-										</GenericParameterSubstituteReference>
-									</GenericParameterSubstitute>
-									<Parameters>
-									</Parameters>
-									<ReplicationFlag>true</ReplicationFlag>
-									<Replication Class="CodeValue">
-										<Code><![CDATA[100]]></Code>
-									</Replication>
-									<CollectionType>ARRAY_LIST_BASED</CollectionType>
-									<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
-									<XCode Class="CodeValue">
-										<Code><![CDATA[0]]></Code>
-									</XCode>
-									<YCode Class="CodeValue">
-										<Code><![CDATA[0]]></Code>
-									</YCode>
-									<ZCode Class="CodeValue">
-										<Code><![CDATA[0]]></Code>
-									</ZCode>
-									<ColumnCode Class="CodeValue">
-										<Code><![CDATA[0]]></Code>
-									</ColumnCode>
-									<RowCode Class="CodeValue">
-										<Code><![CDATA[0]]></Code>
-									</RowCode>
-									<LatitudeCode Class="CodeValue">
-										<Code><![CDATA[0]]></Code>
-									</LatitudeCode>
-									<LongitudeCode Class="CodeValue">
-										<Code><![CDATA[0]]></Code>
-									</LongitudeCode>
-									<LocationNameCode Class="CodeValue">
-										<Code><![CDATA[""]]></Code>
-									</LocationNameCode>
-									<InitializationType>LOAD_FROM_DATABASE</InitializationType>
-									<InitializationDatabaseTableQuery>
-										<TableReference>
-										</TableReference>
-									</InitializationDatabaseTableQuery>
-									<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
-									<QuantityColumn>
-									</QuantityColumn>
-								</EntityEmbeddedObject>
-							</Value>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[speed]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[homeLocationType]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[homeNode]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[homeNodes]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[showDefaultAnimationStatic]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[downtimeSource]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[maintenanceProfile]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[downtimeList]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[enableMaintenance]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[initialTimeToMaintenance]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[timeBetweenMaintenances]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[maintenanceTaskPriority]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[maintenanceTaskMayPreemptOtherTasks]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[maintenanceType]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[maintenanceTime]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[maintenanceTaskStart]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[maintenanceUsageState]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[enableFailuresRepairs]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[initialTimeToFailure]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[timeBetweenFailures]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[countBusyOnlyTimeToFailure]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[repairType]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[repairTime]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[repairTaskStart]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[repairUsageState]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[enableBreaks]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[breaksSchedule]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[breakTaskPriority]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[breakTaskMayPreemptOtherTasks]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[breakTaskPreemptionPolicy]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[breakUsageState]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[enableCustomTasks]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[customTasks]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[endOfShiftTaskPriority]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[endOfShiftTaskMayPreemptOtherTasks]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[endOfShiftTaskPreemptionPolicy]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[customizeRequestChoice]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[requestChoiceCondition]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[addToCustomPopulation]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[population]]></Name>
+							<Name><![CDATA[restoreEntityLocationOnExit]]></Name>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[forceStatisticsCollection]]></Name>
 						</Parameter>
 						<Parameter>
-							<Name><![CDATA[onNewUnit]]></Name>
+							<Name><![CDATA[onEnter]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[teller.requests=(ArrayList<Request>)agent.requestsToLib.clone();
+teller.statechart.receiveMessage("start serve");
+
+agent.requestsToLib.clear();]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
-							<Name><![CDATA[onDestroyUnit]]></Name>
+							<Name><![CDATA[onAtExit]]></Name>
 						</Parameter>
 						<Parameter>
-							<Name><![CDATA[onSeize]]></Name>
+							<Name><![CDATA[onExit]]></Name>
 						</Parameter>
 						<Parameter>
-							<Name><![CDATA[onRelease]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onWrapUp]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onUnitStateChange]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onMaintenanceStart]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onMaintenanceEnd]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onFailure]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onRepair]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onBreakStart]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onBreakEnd]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onBreakTerminated]]></Name>
+							<Name><![CDATA[onRemove]]></Name>
 						</Parameter>
 					</Parameters>
 					<ReplicationFlag>false</ReplicationFlag>
@@ -4618,84 +4369,19 @@ books.get(bookShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Properties Width="530" Height="450">
-						<FillColor/>
-					</Properties>
-				</StatechartElement>
-				<StatechartElement Class="State" ParentState="world" ParentStateId="1723339675881">
-					<Id>1723339592848</Id>
-					<Name><![CDATA[outOfCampus]]></Name>
-					<X>1390</X><Y>630</Y>
-					<Label><X>10</X><Y>10</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties Width="120" Height="90">
+					<Properties Width="630" Height="450">
 						<FillColor/>
 					</Properties>
 				</StatechartElement>
 				<StatechartElement Class="State" ParentState="world" ParentStateId="1723339675881">
 					<Id>1723338975707</Id>
 					<Name><![CDATA[inCampus]]></Name>
-					<X>1080</X><Y>400</Y>
+					<X>1050</X><Y>400</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Properties Width="260" Height="350">
-						<FillColor/>
-					</Properties>
-				</StatechartElement>
-				<StatechartElement Class="State" ParentState="inCampus" ParentStateId="1723338975707">
-					<Id>1723339552996</Id>
-					<Name><![CDATA[leaving]]></Name>
-					<Description><![CDATA[还书]]></Description>
-					<X>1230</X><Y>660</Y>
-					<Label><X>10</X><Y>10</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties Width="100" Height="30">
-						<EntryAction><![CDATA[List<BookInstance> returnBooks =  bookKeeping.returnBooks();
-if(returnBooks.size()>0){
-	requestsToLib.add(new Request(Request.TYPE_RETURN,this,returnBooks));
-}
-traceln(String.format("离开前还书:%s",returnBooks.size()));]]></EntryAction>
-						<FillColor/>
-					</Properties>
-				</StatechartElement>
-				<StatechartElement Class="Branch" ParentState="inCampus" ParentStateId="1723338975707">
-					<Id>1723339443241</Id>
-					<Name><![CDATA[branch]]></Name>
-					<X>1160</X><Y>680</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Properties>	
-					</Properties>	
-				</StatechartElement>
-				<StatechartElement Class="State" ParentState="inCampus" ParentStateId="1723338975707">
-					<Id>1723339267346</Id>
-					<Name><![CDATA[beforeVacation]]></Name>
-					<X>1100</X><Y>600</Y>
-					<Label><X>10</X><Y>10</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties Width="130" Height="30">
-						<FillColor/>
-					</Properties>
-				</StatechartElement>
-				<StatechartElement Class="State" ParentState="inCampus" ParentStateId="1723338975707">
-					<Id>1723339199830</Id>
-					<Name><![CDATA[common]]></Name>
-					<X>1100</X><Y>460</Y>
-					<Label><X>10</X><Y>10</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties Width="130" Height="30">
+					<Properties Width="360" Height="370">
 						<FillColor/>
 					</Properties>
 				</StatechartElement>
@@ -4709,6 +4395,108 @@ traceln(String.format("离开前还书:%s",returnBooks.size()));]]></EntryAction
 					<ShowLabel>false</ShowLabel>
 					<Properties>	
 					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="State" ParentState="world" ParentStateId="1723339675881">
+					<Id>1723339592848</Id>
+					<Name><![CDATA[outOfCampus]]></Name>
+					<X>1500</X><Y>670</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Width="120" Height="90">
+						<FillColor/>
+					</Properties>
+				</StatechartElement>
+				<StatechartElement Class="State" ParentState="inCampus" ParentStateId="1723338975707">
+					<Id>1723557870265</Id>
+					<Name><![CDATA[idle]]></Name>
+					<X>1080</X><Y>470</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Width="270" Height="280">
+						<FillColor/>
+					</Properties>
+				</StatechartElement>
+				<StatechartElement Class="State" ParentState="idle" ParentStateId="1723557870265">
+					<Id>1723554755446</Id>
+					<Name><![CDATA[beforeEnd]]></Name>
+					<X>1090</X><Y>590</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Width="240" Height="150">
+						<FillColor/>
+					</Properties>
+				</StatechartElement>
+				<StatechartElement Class="State" ParentState="beforeEnd" ParentStateId="1723554755446">
+					<Id>1723339267346</Id>
+					<Name><![CDATA[beforeVacation]]></Name>
+					<X>1100</X><Y>640</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Width="130" Height="30">
+						<FillColor/>
+					</Properties>
+				</StatechartElement>
+				<StatechartElement Class="State" ParentState="beforeEnd" ParentStateId="1723554755446">
+					<Id>1723339552996</Id>
+					<Name><![CDATA[leaving]]></Name>
+					<Description><![CDATA[还书]]></Description>
+					<X>1230</X><Y>700</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Width="90" Height="30">
+						<EntryAction><![CDATA[List<BookInstance> returnBooks =  bookKeeping.returnBooks();
+if(returnBooks.size()>0){
+	requestsToLib.add(new Request(Request.TYPE_RETURN,this,returnBooks));
+}
+traceln(String.format("离开前还书:%s",returnBooks.size()));]]></EntryAction>
+						<FillColor/>
+					</Properties>
+				</StatechartElement>
+				<StatechartElement Class="Branch" ParentState="beforeEnd" ParentStateId="1723554755446">
+					<Id>1723339443241</Id>
+					<Name><![CDATA[branch]]></Name>
+					<X>1160</X><Y>720</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Properties>	
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="State" ParentState="idle" ParentStateId="1723557870265">
+					<Id>1723339199830</Id>
+					<Name><![CDATA[common]]></Name>
+					<X>1100</X><Y>510</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Width="130" Height="30">
+						<FillColor/>
+					</Properties>
+				</StatechartElement>
+				<StatechartElement Class="State" ParentState="inCampus" ParentStateId="1723338975707">
+					<Id>1723557893982</Id>
+					<Name><![CDATA[lib]]></Name>
+					<X>1180</X><Y>410</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Width="170" Height="20">
+						<EntryAction><![CDATA[traceln("go to lib");]]></EntryAction>
+						<FillColor/>
+					</Properties>
 				</StatechartElement>
 				<StatechartElement Class="EntryPoint" ParentState="ROOT_NODE">
 					<Id>1723339142260</Id>
@@ -4725,35 +4513,20 @@ traceln(String.format("离开前还书:%s",returnBooks.size()));]]></EntryAction
 					<Properties Target="1723339675881">
 					</Properties>	
 				</StatechartElement>
-				<StatechartElement Class="InitialStatePointer" ParentState="inCampus" ParentStateId="1723338975707">
-					<Id>1723339262557</Id>
-					<Name><![CDATA[initialState]]></Name>
-					<X>1130</X><Y>430</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Points>
-						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>0</X><Y>30</Y></Point>
-					</Points>
-					<Properties Target="1723339199830">
-					</Properties>	
-				</StatechartElement>
-				<StatechartElement Class="Transition" ParentState="inCampus" ParentStateId="1723338975707">
+				<StatechartElement Class="Transition" ParentState="idle" ParentStateId="1723557870265">
 					<Id>1723339325567</Id>
 					<Name><![CDATA[transition]]></Name>
-					<X>1130</X><Y>490</Y>
+					<X>1130</X><Y>540</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>0</X><Y>110</Y></Point>
+						<Point><X>0</X><Y>50</Y></Point>
 					</Points>
 					<IconOffset>20.0</IconOffset>
-					<Properties Source="1723339199830" Target="1723339267346" Trigger="condition">
+					<Properties Source="1723339199830" Target="1723554755446" Trigger="condition">
 						<Timeout Class="CodeUnitValue">
 							<Code><![CDATA[1]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[DAY]]></Unit>
@@ -4770,10 +4543,10 @@ traceln(String.format("离开前还书:%s",returnBooks.size()));]]></EntryAction
 						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
 					</Properties>	
 				</StatechartElement>
-				<StatechartElement Class="Transition" ParentState="inCampus" ParentStateId="1723338975707">
+				<StatechartElement Class="Transition" ParentState="beforeEnd" ParentStateId="1723554755446">
 					<Id>1723339448328</Id>
 					<Name><![CDATA[transition1]]></Name>
-					<X>1160</X><Y>630</Y>
+					<X>1160</X><Y>670</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -4800,10 +4573,10 @@ traceln(String.format("离开前还书:%s",returnBooks.size()));]]></EntryAction
 						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
 					</Properties>	
 				</StatechartElement>
-				<StatechartElement Class="Transition" ParentState="inCampus" ParentStateId="1723338975707">
+				<StatechartElement Class="Transition" ParentState="beforeEnd" ParentStateId="1723554755446">
 					<Id>1723339498047</Id>
 					<Name><![CDATA[transition2]]></Name>
-					<X>1148</X><Y>680</Y>
+					<X>1148</X><Y>720</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -4831,10 +4604,10 @@ traceln(String.format("离开前还书:%s",returnBooks.size()));]]></EntryAction
 						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
 					</Properties>	
 				</StatechartElement>
-				<StatechartElement Class="Transition" ParentState="inCampus" ParentStateId="1723338975707">
+				<StatechartElement Class="Transition" ParentState="beforeEnd" ParentStateId="1723554755446">
 					<Id>1723339570986</Id>
 					<Name><![CDATA[transition3]]></Name>
-					<X>1172</X><Y>680</Y>
+					<X>1172</X><Y>720</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -4864,14 +4637,14 @@ traceln(String.format("离开前还书:%s",returnBooks.size()));]]></EntryAction
 				<StatechartElement Class="Transition" ParentState="world" ParentStateId="1723339675881">
 					<Id>1723339612807</Id>
 					<Name><![CDATA[transition4]]></Name>
-					<X>1330</X><Y>680</Y>
+					<X>1320</X><Y>720</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>60</X><Y>0</Y></Point>
+						<Point><X>180</X><Y>0</Y></Point>
 					</Points>
 					<IconOffset>20.0</IconOffset>
 					<Properties Source="1723339552996" Target="1723339592848" Trigger="timeout">
@@ -4894,14 +4667,14 @@ traceln(String.format("离开前还书:%s",returnBooks.size()));]]></EntryAction
 				<StatechartElement Class="Transition" ParentState="world" ParentStateId="1723339675881">
 					<Id>1723339697155</Id>
 					<Name><![CDATA[transition5]]></Name>
-					<X>1200</X><Y>330</Y>
+					<X>1660</X><Y>440</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>0</X><Y>70</Y></Point>
+						<Point><X>-250</X><Y>0</Y></Point>
 					</Points>
 					<IconOffset>20.0</IconOffset>
 					<Properties Source="1723339675881" Target="1723338975707" Trigger="message">
@@ -4929,7 +4702,7 @@ traceln(String.format("离开前还书:%s",returnBooks.size()));]]></EntryAction
 				<StatechartElement Class="InitialStatePointer" ParentState="world" ParentStateId="1723339675881">
 					<Id>1723339850756</Id>
 					<Name><![CDATA[initialState1]]></Name>
-					<X>1110</X><Y>360</Y>
+					<X>1080</X><Y>360</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -4969,6 +4742,111 @@ traceln(String.format("离开前还书:%s",returnBooks.size()));]]></EntryAction
 						<FilterType><![CDATA[unconditionally]]></FilterType>
 						<EqualsExpression><![CDATA["text"]]></EqualsExpression>
 						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="Transition" ParentState="world" ParentStateId="1723339675881">
+					<Id>1723557956970</Id>
+					<Name><![CDATA[transition8]]></Name>
+					<X>1300</X><Y>330</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>80</Y></Point>
+					</Points>
+					<IconOffset>20.0</IconOffset>
+					<Properties Source="1723339675881" Target="1723557893982" Trigger="message">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[DAY]]></Unit>
+						</Timeout>
+						<Condition><![CDATA[true]]></Condition>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_DAY]]></Unit>
+						</Rate>
+						<MessageType><![CDATA[Object]]></MessageType>
+						<DefaultTransition>true</DefaultTransition>
+						<FilterType><![CDATA[equalsTo]]></FilterType>
+						<EqualsExpression><![CDATA["go lib"]]></EqualsExpression>
+						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="Transition" ParentState="inCampus" ParentStateId="1723338975707">
+					<Id>1723557987039</Id>
+					<Name><![CDATA[transition9]]></Name>
+					<X>1240</X><Y>430</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>40</Y></Point>
+					</Points>
+					<IconOffset>20.0</IconOffset>
+					<Properties Source="1723557893982" Target="1723557870265" Trigger="message">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[DAY]]></Unit>
+						</Timeout>
+						<Condition><![CDATA[true]]></Condition>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_DAY]]></Unit>
+						</Rate>
+						<MessageType><![CDATA[Object]]></MessageType>
+						<DefaultTransition>true</DefaultTransition>
+						<FilterType><![CDATA[equalsTo]]></FilterType>
+						<EqualsExpression><![CDATA["back from lib"]]></EqualsExpression>
+						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="InitialStatePointer" ParentState="inCampus" ParentStateId="1723338975707">
+					<Id>1723558162267</Id>
+					<Name><![CDATA[initialState]]></Name>
+					<X>1120</X><Y>430</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>40</Y></Point>
+					</Points>
+					<Properties Target="1723557870265">
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="InitialStatePointer" ParentState="idle" ParentStateId="1723557870265">
+					<Id>1723558189550</Id>
+					<Name><![CDATA[initialState2]]></Name>
+					<X>1140</X><Y>480</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>30</Y></Point>
+					</Points>
+					<Properties Target="1723339199830">
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="InitialStatePointer" ParentState="beforeEnd" ParentStateId="1723554755446">
+					<Id>1723558213339</Id>
+					<Name><![CDATA[initialState3]]></Name>
+					<X>1120</X><Y>610</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>30</Y></Point>
+					</Points>
+					<Properties Target="1723339267346">
 					</Properties>	
 				</StatechartElement>
 			</StatechartElements>
@@ -5023,7 +4901,7 @@ traceln(String.format("离开前还书:%s",returnBooks.size()));]]></EntryAction
 						<OccurrenceAtTime>true</OccurrenceAtTime>
 						<OccurrenceDate>1723363200000</OccurrenceDate>
 						<OccurrenceTime Class="CodeUnitValue">
-							<Code><![CDATA[0]]></Code>
+							<Code><![CDATA[main.startTime]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[DAY]]></Unit>
 						</OccurrenceTime>
 						<RecurrenceCode Class="CodeUnitValue">
@@ -5034,43 +4912,11 @@ traceln(String.format("离开前还书:%s",returnBooks.size()));]]></EntryAction
 					</Properties>
 					<Action><![CDATA[//requestsToLib.clear(); 
 for(Thought t:thoughts){
-	t.wantBookPerDay();//use 0_dt
+	t.wantBookPerDay();
 }
-create_sendRequestToLib(1);
-//use 1+0_dt]]></Action>
+sendRequestToLib();]]></Action>
 				</Event>
 			</Events>
-			<DynamicEvents>
-				<DynamicEventClass>
-					<Id>1723297704443</Id>
-					<Name><![CDATA[sendRequestToLib]]></Name>
-					<X>500</X><Y>410</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Action><![CDATA[List<BookInstance> continueInses =  bookKeeping.returnBooksRandomly();
-List<BookInstance> returnInses =  bookKeeping.returnBooksNormally();
-continueInses.removeAll(returnInses);
-if(continueInses.size()>0){
-	requestsToLib.add(new Request(Request.TYPE_CONTINUE,this,continueInses));
-}
-if(returnInses.size()>0){
-	requestsToLib.add(new Request(Request.TYPE_RETURN,this,returnInses));
-}
-if(requestsToLib.size()==0){
-	//trace("无请求");
-	return;
-}
-if(!inState(inCampus)){
-	//trace("离校");
-	return;
-}
-
-//traceln(String.format("个人今日请求:%s,%s",requestsToLib,this));
-main.library.portCustomers.receive(this);]]></Action>
-				</DynamicEventClass>
-			</DynamicEvents>
 			<Functions>
 				<Function AccessType="default" StaticFunction="false">
 					<ReturnModificator>VOID</ReturnModificator>
@@ -5138,12 +4984,14 @@ for(Thought t:thoughts){
 	boolean flag = false;
 	for(BookWithWeight bww:t.bookWithWeights){
 		if(bww.book.equals(book)){
-			bww.keeping = 1;
+			if(t.equals(response.getRequest().thought)){
+				bww.keeping=1;
+			}
 			flag = true;
 		}
 	}
 	if(flag){
-		t.eFreqnRatio*=0.5;
+		t.eFreqnRatio*=0.9;
 		Main.stat.addBorrowRecordByCourse(main.weekInTerm, t.courseId);
 	}
 }]]></Body>
@@ -5186,6 +5034,38 @@ for(Thought t:thoughts){
 		}
 	}
 }]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1723559858107</Id>
+					<Name><![CDATA[sendRequestToLib]]></Name>
+					<X>500</X><Y>410</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[List<BookInstance> continueInses =  bookKeeping.returnBooksRandomly();
+List<BookInstance> returnInses =  bookKeeping.returnBooksNormally();
+continueInses.removeAll(returnInses);
+if(continueInses.size()>0){
+	requestsToLib.add(new Request(Request.TYPE_CONTINUE,this,continueInses));
+}
+if(returnInses.size()>0){
+	requestsToLib.add(new Request(Request.TYPE_RETURN,this,returnInses));
+}
+if(requestsToLib.size()==0){
+	//trace("无请求");
+	return;
+}
+if(!inState(idle)){
+	//trace("没空");
+	return;
+}
+//traceln(String.format("个人今日请求:%s,%s",requestsToLib,this));
+
+statechart.receiveMessage("go lib");
+main.library.portCustomers.receive(this);]]></Body>
 				</Function>
 			</Functions>
 			<TableFunctions>
@@ -5598,6 +5478,89 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 						<LabelText><![CDATA[查看Thought]]></LabelText>
 					</ExtendedProperties>
 				</Control>
+				<Text>
+					<Id>1723552776992</Id>
+					<Name><![CDATA[text2]]></Name>
+					<X>40</X><Y>150</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[基本信息]]></Text>
+					<TextCode><![CDATA[String.format("学期: %s",grade)]]></TextCode>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>36</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Group>
+					<Id>1723555084423</Id>
+					<Name><![CDATA[group6]]></Name>
+					<X>1280</X><Y>80</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+
+			<Presentation>
+				<Image>
+					<Id>1723555084425</Id>
+					<Name><![CDATA[image]]></Name>
+					<X>-270</X><Y>-60</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Width>120</Width>
+					<Height>115.355</Height>
+					<Rotation>0.0</Rotation>
+					<ImageFiles>
+						<ImageResourceReference>
+							<PackageName><![CDATA[librarys]]></PackageName>
+							<ClassName><![CDATA[clock.jpg]]></ClassName>
+						</ImageResourceReference>
+					</ImageFiles>
+					<OriginalSize>false</OriginalSize>
+				</Image>
+				<Text>
+					<Id>1723555084427</Id>
+					<Name><![CDATA[textTimeDisplay]]></Name>
+					<X>-130</X><Y>-40</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[第__学期__周__天]]></Text>
+					<TextCode><![CDATA[String.format("第%s学期, 第%s周，第%s天",main.term+1,main.weekInTerm+1,1+main.day%7)]]></TextCode>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>48</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+			</Presentation>
+
+				</Group>
 			</Presentation>
 
 				</Level>
@@ -7727,6 +7690,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					</Points>
 					<IconOffset>20.0</IconOffset>
 					<Properties Source="1723337908836" Target="1723337908836" Trigger="timeout">
+						<Action><![CDATA[ratioInTerm=customer.weekWeightOut(main.weekInTerm);]]></Action>
 						<Timeout Class="CodeUnitValue">
 							<Code><![CDATA[1]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[DAY]]></Unit>
@@ -7757,6 +7721,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					</Points>
 					<IconOffset>20.0</IconOffset>
 					<Properties Source="1723337955323" Target="1723337955323" Trigger="timeout">
+						<Action><![CDATA[ratioInTerm=customer.weekWeightOut(main.weekInTerm);]]></Action>
 						<Timeout Class="CodeUnitValue">
 							<Code><![CDATA[1]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[DAY]]></Unit>
@@ -7787,6 +7752,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					</Points>
 					<IconOffset>20.0</IconOffset>
 					<Properties Source="1723338070958" Target="1723338070958" Trigger="timeout">
+						<Action><![CDATA[ratioInTerm=customer.weekWeightOut(main.weekInTerm);]]></Action>
 						<Timeout Class="CodeUnitValue">
 							<Code><![CDATA[1]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[DAY]]></Unit>
@@ -7817,6 +7783,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					</Points>
 					<IconOffset>60.0</IconOffset>
 					<Properties Source="1723338094165" Target="1723338094165" Trigger="timeout">
+						<Action><![CDATA[ratioInTerm=customer.weekWeightOut(main.weekInTerm);]]></Action>
 						<Timeout Class="CodeUnitValue">
 							<Code><![CDATA[1]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[DAY]]></Unit>
@@ -7952,6 +7919,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					</Points>
 					<IconOffset>20.0</IconOffset>
 					<Properties Source="1723338583583" Target="1723338583583" Trigger="timeout">
+						<Action><![CDATA[ratioInTerm=customer.weekWeightOut(main.weekInTerm);]]></Action>
 						<Timeout Class="CodeUnitValue">
 							<Code><![CDATA[1]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[DAY]]></Unit>
@@ -7982,6 +7950,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					</Points>
 					<IconOffset>20.0</IconOffset>
 					<Properties Source="1723338583585" Target="1723338583585" Trigger="timeout">
+						<Action><![CDATA[ratioInTerm=customer.weekWeightOut(main.weekInTerm);]]></Action>
 						<Timeout Class="CodeUnitValue">
 							<Code><![CDATA[1]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[DAY]]></Unit>
@@ -8012,6 +7981,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					</Points>
 					<IconOffset>20.0</IconOffset>
 					<Properties Source="1723338583587" Target="1723338583587" Trigger="timeout">
+						<Action><![CDATA[ratioInTerm=customer.weekWeightOut(main.weekInTerm);]]></Action>
 						<Timeout Class="CodeUnitValue">
 							<Code><![CDATA[1]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[DAY]]></Unit>
@@ -8042,6 +8012,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					</Points>
 					<IconOffset>60.0</IconOffset>
 					<Properties Source="1723338583589" Target="1723338583589" Trigger="timeout">
+						<Action><![CDATA[ratioInTerm=customer.weekWeightOut(main.weekInTerm);]]></Action>
 						<Timeout Class="CodeUnitValue">
 							<Code><![CDATA[1]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[DAY]]></Unit>
@@ -8179,6 +8150,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					</Points>
 					<IconOffset>20.0</IconOffset>
 					<Properties Source="1723338652505" Target="1723338652505" Trigger="timeout">
+						<Action><![CDATA[ratioInTerm=customer.weekWeightOut(main.weekInTerm);]]></Action>
 						<Timeout Class="CodeUnitValue">
 							<Code><![CDATA[1]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[DAY]]></Unit>
@@ -8209,6 +8181,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					</Points>
 					<IconOffset>20.0</IconOffset>
 					<Properties Source="1723338652507" Target="1723338652507" Trigger="timeout">
+						<Action><![CDATA[ratioInTerm=customer.weekWeightOut(main.weekInTerm);]]></Action>
 						<Timeout Class="CodeUnitValue">
 							<Code><![CDATA[1]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[DAY]]></Unit>
@@ -8239,6 +8212,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					</Points>
 					<IconOffset>20.0</IconOffset>
 					<Properties Source="1723338652509" Target="1723338652509" Trigger="timeout">
+						<Action><![CDATA[ratioInTerm=customer.weekWeightOut(main.weekInTerm);]]></Action>
 						<Timeout Class="CodeUnitValue">
 							<Code><![CDATA[1]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[DAY]]></Unit>
@@ -8269,6 +8243,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					</Points>
 					<IconOffset>60.0</IconOffset>
 					<Properties Source="1723338652511" Target="1723338652511" Trigger="timeout">
+						<Action><![CDATA[ratioInTerm=customer.weekWeightOut(main.weekInTerm);]]></Action>
 						<Timeout Class="CodeUnitValue">
 							<Code><![CDATA[1]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[DAY]]></Unit>
@@ -8383,20 +8358,6 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 //traceln(String.format("eFreqn..:%s,%s,%s,%s",eFreqn,probPerDayBefore,probPerDayIn,probPerDayAfter))]]></Action>
 				</Event>
 			</Events>
-			<DynamicEvents>
-				<DynamicEventClass>
-					<Id>1723287356850</Id>
-					<Name><![CDATA[needBook]]></Name>
-					<X>270</X><Y>850</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Action><![CDATA[Request requestTemp = new Request(Request.TYPE_BORROW,this);
-request.send(requestTemp);
-//traceln("thought发出借书请求");]]></Action>
-				</DynamicEventClass>
-			</DynamicEvents>
 			<Functions>
 				<Function AccessType="default" StaticFunction="false">
 					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
@@ -8455,7 +8416,7 @@ return 0;]]></Body>
 					<Body><![CDATA[if(haveCourse==0){
 	return eFreqn;
 }
-return probPerDayConsistingTerm();]]></Body>
+return ratioInTerm*probPerDayConsistingTerm();]]></Body>
 				</Function>
 				<Function AccessType="default" StaticFunction="false">
 					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
@@ -8481,9 +8442,22 @@ return probPerDayIn;]]></Body>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Body><![CDATA[if(randomTrue(probPerDay())){
-	create_needBook(0);
+	needBook();
 }
 totalCredit=customer.getCreditTotal();]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1723559821669</Id>
+					<Name><![CDATA[needBook]]></Name>
+					<X>270</X><Y>850</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[Request requestTemp = new Request(Request.TYPE_BORROW,this);
+request.send(requestTemp);]]></Body>
 				</Function>
 			</Functions>
 			<AgentLinks>
@@ -8799,6 +8773,89 @@ bookWithWeights.get(bwwShowIndex).viewArea.navigateTo();]]></ActionCode>
 						<LabelText><![CDATA[>>Root]]></LabelText>
 					</ExtendedProperties>
 				</Control>
+				<Text>
+					<Id>1723552685916</Id>
+					<Name><![CDATA[text2]]></Name>
+					<X>50</X><Y>200</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[基本信息]]></Text>
+					<TextCode><![CDATA[String.format("当前学期: %s; 当前权重: %s",customer.grade,probPerDay())]]></TextCode>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>36</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Group>
+					<Id>1723552883239</Id>
+					<Name><![CDATA[group6]]></Name>
+					<X>1880</X><Y>80</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+
+			<Presentation>
+				<Image>
+					<Id>1723552883241</Id>
+					<Name><![CDATA[image]]></Name>
+					<X>-270</X><Y>-60</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Width>120</Width>
+					<Height>115.355</Height>
+					<Rotation>0.0</Rotation>
+					<ImageFiles>
+						<ImageResourceReference>
+							<PackageName><![CDATA[librarys]]></PackageName>
+							<ClassName><![CDATA[clock.jpg]]></ClassName>
+						</ImageResourceReference>
+					</ImageFiles>
+					<OriginalSize>false</OriginalSize>
+				</Image>
+				<Text>
+					<Id>1723552883243</Id>
+					<Name><![CDATA[textTimeDisplay]]></Name>
+					<X>-130</X><Y>-40</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[第__学期__周__天]]></Text>
+					<TextCode><![CDATA[String.format("第%s学期, 第%s周，第%s天",main.term+1,main.weekInTerm+1,1+main.day%7)]]></TextCode>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>48</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+			</Presentation>
+
+				</Group>
 			</Presentation>
 
 				</Level>
@@ -10558,6 +10615,21 @@ for(BookWithWeight bww:thought.bookWithWeights){
 						<Type><![CDATA[int]]></Type>        
 					</Properties>
 				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1723555503160</Id>
+					<Name><![CDATA[logging]]></Name>
+					<X>50</X><Y>550</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[boolean]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[true]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
 				<Variable Class="CollectionVariable">
 					<Id>1723300160885</Id>
 					<Name><![CDATA[requests]]></Name>
@@ -10640,6 +10712,7 @@ for(BookWithWeight bww:thought.bookWithWeights){
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties Width="120" Height="50">
+						<ExitAction><![CDATA[log("开始服务");]]></ExitAction>
 						<FillColor/>
 					</Properties>
 				</StatechartElement>
@@ -10713,6 +10786,7 @@ handlingType=handling.type;
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties Width="120" Height="30">
+						<EntryAction><![CDATA[log("--借书");]]></EntryAction>
 						<FillColor/>
 					</Properties>
 				</StatechartElement>
@@ -10737,6 +10811,7 @@ handlingType=handling.type;
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties Width="120" Height="30">
+						<EntryAction><![CDATA[log("开始还书服务");]]></EntryAction>
 						<FillColor/>
 					</Properties>
 				</StatechartElement>
@@ -10760,6 +10835,7 @@ handlingType=handling.type;
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties Width="100" Height="30">
+						<EntryAction><![CDATA[log("----没有借书资格");]]></EntryAction>
 						<FillColor/>
 					</Properties>
 				</StatechartElement>
@@ -10820,8 +10896,8 @@ handlingType=handling.type;
 					<ShowLabel>true</ShowLabel>
 					<Properties Width="150" Height="30">
 						<EntryAction><![CDATA[int borrowDays = 60;
-ordered.get(selected).lendToCustomer(handling.customer, borrowDays);
-]]></EntryAction>
+ordered.get(selected).lendToCustomer(handling.customer, borrowDays,handling.clone());
+log("借书成功");]]></EntryAction>
 						<FillColor/>
 					</Properties>
 				</StatechartElement>
@@ -10861,8 +10937,8 @@ ordered.get(0).reserveByCustomer(handling.customer, reserveDays);]]></EntryActio
 					<ShowLabel>true</ShowLabel>
 					<Properties Width="210" Height="30">
 						<EntryAction><![CDATA[int borrowDays = 60;
-handling.bookGet.lendToCustomer(handling.customer, borrowDays);
-handling.customer.libResponse.receive(new Respond(Respond.TYPE_PICKUP,Respond.STATUS_SUCCESS,handling.bookGet,borrowDays,0));
+handling.bookGet.lendToCustomer(handling.customer, borrowDays,handling.clone());
+//handling.customer.libResponse.receive(new Respond(Respond.TYPE_PICKUP,Respond.STATUS_SUCCESS,handling.bookGet,borrowDays,0));
 handling.customer.portReserve.disconnect(handling.bookGet.reserves);]]></EntryAction>
 						<FillColor/>
 					</Properties>
@@ -10924,12 +11000,15 @@ handling.customer.portReserve.disconnect(handling.bookGet.reserves);]]></EntryAc
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties Width="210" Height="30">
-						<EntryAction><![CDATA[for(BookInstance bi:handling.bookInsReturns){
+						<EntryAction><![CDATA[log("----开始续借");
+for(BookInstance bi:handling.bookInsReturns){
+	log("检查中");
 	if(bi.book.reserveCustomers.size()>0){
-		return;//此时不允许续借
+		log("续借失败");
+		break;
 	}
 	handling.customer.bookKeeping.continueBookIns(bi, 60);
-	//traceln(String.format("%s续借了%s",handling.customer,bi));
+	log(String.format("%s续借了%s",handling.customer,bi));
 }]]></EntryAction>
 						<FillColor/>
 					</Properties>
@@ -10962,8 +11041,8 @@ handling.customer.portReserve.disconnect(handling.bookGet.reserves);]]></EntryAc
 						<Point><X>0</X><Y>150</Y></Point>
 					</Points>
 					<IconOffset>60.0</IconOffset>
-					<Properties Source="1723300131077" Target="1723300236108" Trigger="condition">
-						<Action><![CDATA[//traceln("开始服务新顾客");]]></Action>
+					<Properties Source="1723300131077" Target="1723300236108" Trigger="message">
+						<Action><![CDATA[get_Library().hold.block();]]></Action>
 						<Timeout Class="CodeUnitValue">
 							<Code><![CDATA[1]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[DAY]]></Unit>
@@ -10975,8 +11054,8 @@ handling.customer.portReserve.disconnect(handling.bookGet.reserves);]]></EntryAc
 						</Rate>
 						<MessageType><![CDATA[Object]]></MessageType>
 						<DefaultTransition>true</DefaultTransition>
-						<FilterType><![CDATA[unconditionally]]></FilterType>
-						<EqualsExpression><![CDATA["text"]]></EqualsExpression>
+						<FilterType><![CDATA[equalsTo]]></FilterType>
+						<EqualsExpression><![CDATA["start serve"]]></EqualsExpression>
 						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
 					</Properties>	
 				</StatechartElement>
@@ -11070,7 +11149,8 @@ handling.customer.portReserve.disconnect(handling.bookGet.reserves);]]></EntryAc
 					</Points>
 					<IconOffset>100.0</IconOffset>
 					<Properties Source="1723300595736" Target="1723300131077" Trigger="condition">
-						<Action><![CDATA[//traceln("teller恢复空闲"); ]]></Action>
+						<Action><![CDATA[//traceln("teller恢复空闲"); 
+get_Library().hold.unblock();]]></Action>
 						<Timeout Class="CodeUnitValue">
 							<Code><![CDATA[1]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[DAY]]></Unit>
@@ -12012,7 +12092,25 @@ for(BookInstance bi:bookInstances){
 }
 for(BookInstance bi:temp){
 	bi.book.returnByCustomer(handling.customer, bi);
-}]]></Body>
+}
+log(String.format("还书成功，当前持有:%s",bookInstances.size()));]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1723556515909</Id>
+					<Name><![CDATA[log]]></Name>
+					<X>50</X><Y>600</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[msg]]></Name>
+						<Type><![CDATA[String]]></Type>
+					</Parameter>
+					<Body><![CDATA[if(!logging){return;}
+traceln(msg);]]></Body>
 				</Function>
 			</Functions>
 			<AgentLinks>
@@ -12147,6 +12245,28 @@ for(BookInstance bi:temp){
 						<Font Name="Dialog" Size="36" Style="0"/>
 						<LabelText><![CDATA[>>Root]]></LabelText>
 					</ExtendedProperties>
+				</Control>
+				<Control Type="CheckBox">
+				 	<EmbeddedIcon>false</EmbeddedIcon>				
+					<Id>1723555495720</Id>
+					<Name><![CDATA[checkbox]]></Name>
+					<X>40</X><Y>450</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<BasicProperties Width="260" Height="70">
+                        <EmbeddedIcon>false</EmbeddedIcon>	
+						<TextColor/>
+						<Enabled>true</Enabled>
+					</BasicProperties>
+					<ExtendedProperties>
+						<Font Name="Dialog" Size="36" Style="0"/>
+						<LabelText><![CDATA[Logging]]></LabelText>
+						<LinkTo>true</LinkTo>
+						<Link>logging</Link>
+	 				</ExtendedProperties>
 				</Control>
 			</Presentation>
 
@@ -12346,6 +12466,9 @@ for(BookInstance bi:temp){
 			</Presentation>
 
 			<Parameters>			
+				<Parameter>
+					<ParameterName><![CDATA[startTime]]></ParameterName>
+				</Parameter>
 			</Parameters>			
 			<PresentationProperties>
 				<EnableZoomAndPanning>false</EnableZoomAndPanning>
@@ -12484,6 +12607,8 @@ public class Respond implements Serializable {
     // 预约的天数，仅当type为预约结果时有效
     private int reserveDays;
     private BookInstance bookInstance;
+    // 请求钩子
+    private Request request=null;
     
     // 定义响应类型的静态常量
     public static final int TYPE_PICKUP = 1; // 取书结果
@@ -12596,6 +12721,18 @@ public class Respond implements Serializable {
         this.bookInstance = bookInstance;
     }
 
+    /**
+     * 配置或调用请求钩子。
+     * 
+     * @return 请求对象
+     */
+    public void setRequest(Request request) {
+    	this.request = request.clone();
+    }
+    public Request getRequest() {
+    	return this.request;
+    }
+
     @Override
     public String toString() {
         return "Respond{" +
@@ -12634,12 +12771,16 @@ public class Request implements Serializable {
 	public static final int TYPE_GET_RETURN=5;
 	public static final int TYPE_CONTINUE=6;
 	
-	public int type;
-	public Thought thought;
-	public AgentArrayList<BookWithWeight> bookWithWeights;
-	public Book bookGet;
-	public List<BookInstance> bookInsReturns;
-	public Customer customer;
+	public int type = -1;
+	public Thought thought = null;
+	public AgentArrayList<BookWithWeight> bookWithWeights = null;
+	public Book bookGet = null;
+	public List<BookInstance> bookInsReturns = null;
+	public Customer customer = null;
+	
+	public Request() {
+		
+	}
 	
     public Request(int type,Thought t) {
     	this.type=type;
@@ -12669,6 +12810,33 @@ public class Request implements Serializable {
     	if(this.type==TYPE_GET) {
     		this.type=TYPE_GET_RETURN;
     	}
+    }
+    
+    public Request clone() {
+        Request cloned = new Request();
+        
+        cloned.type = this.type;
+        if (this.thought != null) {
+            cloned.thought = this.thought; // 假设Thought类也有clone方法
+        }
+        
+        if (this.bookWithWeights != null) {
+            cloned.bookWithWeights = this.bookWithWeights;
+        }
+        
+        if (this.bookGet != null) {
+            cloned.bookGet = this.bookGet; // 假设Book类也有clone方法
+        }
+        
+        if (this.bookInsReturns != null) {
+            cloned.bookInsReturns = this.bookInsReturns;
+        }
+        
+        if (this.customer != null) {
+            cloned.customer = this.customer; // 假设Customer类也有clone方法
+        }
+        
+        return cloned;
     }
 
     @Override
