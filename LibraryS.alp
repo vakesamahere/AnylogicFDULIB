@@ -316,6 +316,36 @@
 						</InitialValue>
 					</Properties>
 				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1723599995418</Id>
+					<Name><![CDATA[thoughtLogging]]></Name>
+					<X>60</X><Y>550</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[boolean]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[true]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1723600957171</Id>
+					<Name><![CDATA[customerLogging]]></Name>
+					<X>410</X><Y>550</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[boolean]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[true]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
 				<Variable Class="Parameter">
 					<Id>1723559674520</Id>
 					<Name><![CDATA[startTime]]></Name>
@@ -1775,6 +1805,50 @@ customers.get(customerShowIndex).viewArea.navigateTo();]]></ActionCode>
 			</Presentation>
 
 				</Group>
+				<Control Type="CheckBox">
+				 	<EmbeddedIcon>false</EmbeddedIcon>				
+					<Id>1723599969597</Id>
+					<Name><![CDATA[checkbox]]></Name>
+					<X>50</X><Y>490</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<BasicProperties Width="290" Height="40">
+                        <EmbeddedIcon>false</EmbeddedIcon>	
+						<TextColor/>
+						<Enabled>true</Enabled>
+					</BasicProperties>
+					<ExtendedProperties>
+						<Font Name="Dialog" Size="36" Style="0"/>
+						<LabelText><![CDATA[ThoughtLogging]]></LabelText>
+						<LinkTo>true</LinkTo>
+						<Link>thoughtLogging</Link>
+	 				</ExtendedProperties>
+				</Control>
+				<Control Type="CheckBox">
+				 	<EmbeddedIcon>false</EmbeddedIcon>				
+					<Id>1723600925180</Id>
+					<Name><![CDATA[checkbox1]]></Name>
+					<X>400</X><Y>490</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<BasicProperties Width="290" Height="40">
+                        <EmbeddedIcon>false</EmbeddedIcon>	
+						<TextColor/>
+						<Enabled>true</Enabled>
+					</BasicProperties>
+					<ExtendedProperties>
+						<Font Name="Dialog" Size="36" Style="0"/>
+						<LabelText><![CDATA[CustomerLogging]]></LabelText>
+						<LinkTo>true</LinkTo>
+						<Link>customerLogging</Link>
+	 				</ExtendedProperties>
+				</Control>
 			</Presentation>
 
 				</Level>
@@ -4911,9 +4985,22 @@ traceln(String.format("离开前还书:%s",returnBooks.size()));]]></EntryAction
 						<Condition><![CDATA[false]]></Condition>
 					</Properties>
 					<Action><![CDATA[//requestsToLib.clear(); 
+log(
+	Logging.partition(
+		String.format(
+			"Daily Check for Customer [%s]",
+			uid
+			)
+		)
+	);
 for(Thought t:thoughts){
 	t.wantBookPerDay();
 }
+log(
+	Logging.partition(
+		"End of Borrow Check"
+		)
+	);
 sendRequestToLib();]]></Action>
 				</Event>
 			</Events>
@@ -4986,6 +5073,7 @@ for(Thought t:thoughts){
 		if(bww.book.equals(book)){
 			if(t.equals(response.getRequest().thought)){
 				bww.keeping=1;
+				log(String.format("[info] Change the Weight of customer [%s], book [%s] for thought [%s]",uid,bww.book,t.uid));
 			}
 			flag = true;
 		}
@@ -5066,6 +5154,23 @@ if(!inState(idle)){
 
 statechart.receiveMessage("go lib");
 main.library.portCustomers.receive(this);]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1723600981630</Id>
+					<Name><![CDATA[log]]></Name>
+					<X>500</X><Y>800</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[msg]]></Name>
+						<Type><![CDATA[String]]></Type>
+					</Parameter>
+					<Body><![CDATA[if(!main.customerLogging){return;}
+traceln(msg);]]></Body>
 				</Function>
 			</Functions>
 			<TableFunctions>
@@ -5246,6 +5351,12 @@ main.library.portCustomers.receive(this);]]></Body>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[eFreqnRatio]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[uid]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[index]]></Code>
+							</Value>
 						</Parameter>
 					</Parameters>
 					<ReplicationFlag>true</ReplicationFlag>
@@ -6301,6 +6412,27 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1723336349872</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1723600633304</Id>
+					<Name><![CDATA[uid]]></Name>
+					<X>70</X><Y>450</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1723600633302</Id>
 							<EditorContolType>TEXT_BOX</EditorContolType>
 							<MinSliderValue><![CDATA[0]]></MinSliderValue>
 							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
@@ -8457,7 +8589,25 @@ totalCredit=customer.getCreditTotal();]]></Body>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Body><![CDATA[Request requestTemp = new Request(Request.TYPE_BORROW,this);
-request.send(requestTemp);]]></Body>
+request.send(requestTemp);
+log(String.format("[info] Borrow request generated by customer [%s], thought [%s](uid=%s):%s",customer.uid,courseId,uid,courseName));]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1723599940436</Id>
+					<Name><![CDATA[log]]></Name>
+					<X>220</X><Y>600</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[msg]]></Name>
+						<Type><![CDATA[String]]></Type>
+					</Parameter>
+					<Body><![CDATA[if(!main.thoughtLogging){return;}
+traceln(msg);]]></Body>
 				</Function>
 			</Functions>
 			<AgentLinks>
@@ -12482,8 +12632,8 @@ traceln(msg);]]></Body>
 				<StopOption><![CDATA[Stop at specified time]]></StopOption>
 				<InitialDate><![CDATA[1723075200000]]></InitialDate>	
 				<InitialTime><![CDATA[0.0]]></InitialTime>	
-				<FinalDate><![CDATA[1771459200000]]></FinalDate>	
-				<FinalTime><![CDATA[560.0]]></FinalTime>	
+				<FinalDate><![CDATA[1730246400000]]></FinalDate>	
+				<FinalTime><![CDATA[83.0]]></FinalTime>	
 			</ModelTimeProperties>
 			<BypassInitialScreen>true</BypassInitialScreen>
 		</SimulationExperiment>	
@@ -13326,6 +13476,46 @@ public class Record implements Serializable {
     	this.bookid = bookid;
     }
 
+	@Override
+	public String toString() {
+		return super.toString();
+	}
+
+	/**
+	 * This number is here for model snapshot storing purpose<br>
+	 * It needs to be changed when this class gets changed
+	 */ 
+	private static final long serialVersionUID = 1L;
+
+}]]></Text>
+		</JavaClass>
+		<!--   =========   Java Class   ========  -->
+		<JavaClass>
+			<Id>1723601340365</Id>
+			<Name><![CDATA[Logging]]></Name>
+			<Text><![CDATA[/**
+ * Logging
+ */	
+public class Logging implements Serializable {
+
+	public static final int PARTITION_LENGTH = 50;
+    /**
+     * Default constructor
+     */
+    public Logging() {
+    }
+    
+    
+    public static String partition(String msg) {
+    	int l = (PARTITION_LENGTH-msg.length())/2;
+    	for(int i=0;i<l;i++) {
+    		msg=String.format("=%s=",msg);
+    	}
+    	return msg;
+    }
+    public static void partitionTrace(String msg) {
+    	traceln(partition(msg));
+    }
 	@Override
 	public String toString() {
 		return super.toString();
