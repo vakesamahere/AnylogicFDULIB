@@ -346,6 +346,18 @@
 						</InitialValue>
 					</Properties>
 				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1723620566826</Id>
+					<Name><![CDATA[readerBorrowCounts]]></Name>
+					<X>-1150</X><Y>350</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[List<Integer>]]></Type>        
+					</Properties>
+				</Variable>
 				<Variable Class="Parameter">
 					<Id>1723559674520</Id>
 					<Name><![CDATA[startTime]]></Name>
@@ -439,13 +451,14 @@ weeklyBorrowerCounts = stat.getWeeklyBorrowerCounts();
 weeklyReservationCounts = stat.getWeeklyReservationCounts();
 weeklyReservationPeopleCounts = stat.getWeeklyReservationPeopleCounts();
 courselyBorrowCounts=stat.getCourseBorrowCounts();
+readerBorrowCounts=stat.getReaderBorrowCounts();
 
 refreshChartByValues(weekBorrow, weeklyBorrowCounts);
 refreshChartByValues(weekBorrower, weeklyBorrowerCounts);
 refreshChartByValues(weekReservation, weeklyReservationCounts);
 refreshChartByValues(weekReservationPeople, weeklyReservationPeopleCounts);
 refreshChartByMap(courseBorrow, courselyBorrowCounts);
-]]></Action>
+refreshChartByValues(readerBorrow, readerBorrowCounts);]]></Action>
 				</Event>
 				<Event>
 					<Id>1723321766031</Id>
@@ -480,11 +493,14 @@ refreshChartByMap(courseBorrow, courselyBorrowCounts);
 iniLibBooks();
 int length = 20;
 stat.setWeeks(length);
+stat.setCustomers(customers.size());
 iniChartByLength("week", 20, weekBorrow);
 iniChartByLength("week", 20, weekBorrower);
 iniChartByLength("week", 20, weekReservation);
 iniChartByLength("week", 20, weekReservationPeople);
-iniChartByLength("week", 30, courseBorrow);]]></Action>
+iniChartByLength("week", 30, courseBorrow);
+iniChartByLength("customer", customers.size(), readerBorrow);
+]]></Action>
 				</Event>
 				<Event>
 					<Id>1723321870647</Id>
@@ -890,7 +906,7 @@ for (int i=0;i<list.size();i++) {
     			<TimeStackChart>
 					<Id>1723449659466</Id>
 					<Name><![CDATA[chart]]></Name>
-					<X>1200</X><Y>80</Y>
+					<X>1010</X><Y>110</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1015,7 +1031,7 @@ for (int i=0;i<list.size();i++) {
                         <EmbeddedIcon>false</EmbeddedIcon>	
 						<TextColor/>
 						<Enabled>true</Enabled>
-						<ActionCode><![CDATA[if(customerShowIndex<0||customerShowIndex>=customers.size()-1){
+						<ActionCode><![CDATA[if(customerShowIndex<0||customerShowIndex>=customers.size()){
 	return;
 }
 customers.get(customerShowIndex).viewArea.navigateTo();]]></ActionCode>
@@ -1501,7 +1517,7 @@ customers.get(customerShowIndex).viewArea.navigateTo();]]></ActionCode>
 				<Group>
 					<Id>1723454826266</Id>
 					<Name><![CDATA[group4]]></Name>
-					<X>4120</X><Y>850</Y>
+					<X>6720</X><Y>800</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1706,13 +1722,13 @@ customers.get(customerShowIndex).viewArea.navigateTo();]]></ActionCode>
 				 	<EmbeddedIcon>false</EmbeddedIcon>				
 					<Id>1723455778719</Id>
 					<Name><![CDATA[buttonToCustomer2]]></Name>
-					<X>280</X><Y>320</Y>
+					<X>280</X><Y>310</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<BasicProperties Width="610" Height="80">
+					<BasicProperties Width="610" Height="70">
                         <EmbeddedIcon>false</EmbeddedIcon>	
 						<TextColor/>
 						<Enabled>true</Enabled>
@@ -1848,6 +1864,143 @@ customers.get(customerShowIndex).viewArea.navigateTo();]]></ActionCode>
 						<LinkTo>true</LinkTo>
 						<Link>customerLogging</Link>
 	 				</ExtendedProperties>
+				</Control>
+				<Group>
+					<Id>1723620171264</Id>
+					<Name><![CDATA[group7]]></Name>
+					<X>4170</X><Y>850</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+
+			<Presentation>
+    			<BarChart>
+					<Id>1723620171267</Id>
+					<Name><![CDATA[readerBorrow]]></Name>
+					<X>-920</X><Y>-100</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<AutoUpdate>true</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1723449600000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[DAY]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[DAY]]></Unit>
+					</RecurrenceCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Width>1820</Width>
+					<Height>230</Height>
+					<BackgroundColor/>
+					<BorderColor/>
+					<ChartArea>
+						<XOffset>50</XOffset>
+						<YOffset>30</YOffset>
+						<Width>1740</Width>
+						<Height>170</Height>
+						<BackgroundColor>-1</BackgroundColor>
+						<BorderColor>-16777216</BorderColor>
+						<GridColor>-12566464</GridColor>
+					</ChartArea>
+					<Legend>
+						<Place>SOUTH</Place>
+						<TextColor>-16777216</TextColor>
+						<Size>30</Size>
+					</Legend>
+					<Labels>
+						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
+						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
+						<TextColor>-12566464</TextColor>
+					</Labels>
+					<ShowLegend>false</ShowLegend>
+					<ScaleFromExpression><![CDATA[0]]></ScaleFromExpression>
+					<ScaleToExpression><![CDATA[1]]></ScaleToExpression>
+					<ScaleType>AUTO</ScaleType>
+					<Bars>
+						<Direction>UP</Direction>
+						<RelativeWidth>0.8</RelativeWidth>
+					</Bars>
+    			</BarChart>
+				<Text>
+					<Id>1723620171269</Id>
+					<Name><![CDATA[text7]]></Name>
+					<X>-880</X><Y>-140</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[顾客-借阅量]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>48</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1723620171271</Id>
+					<Name><![CDATA[textBorrow5]]></Name>
+					<X>-880</X><Y>100</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[图例]]></Text>
+					<TextCode><![CDATA[stat.toStringReaderBorrow()]]></TextCode>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>48</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+			</Presentation>
+
+				</Group>
+				<Control Type="ProgressBar">
+				 	<EmbeddedIcon>false</EmbeddedIcon>				
+					<Id>1723627658617</Id>
+					<Name><![CDATA[progressBar]]></Name>
+					<X>40</X><Y>140</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<BasicProperties Width="850" Height="30">
+                        <EmbeddedIcon>false</EmbeddedIcon>	
+						<Enabled>true</Enabled>
+					</BasicProperties>
+					<ExtendedProperties>
+						<Orientation>HORIZONTAL</Orientation>
+						<ShowProgressString>false</ShowProgressString>
+						<ProgressStringCode><![CDATA[]]></ProgressStringCode>
+						<ValueCode><![CDATA[day]]></ValueCode>
+						<MinValue><![CDATA[0]]></MinValue>
+						<MaxValue><![CDATA[7*20*4]]></MaxValue>
+						<Determinate><![CDATA[true]]></Determinate>
+					</ExtendedProperties>
 				</Control>
 			</Presentation>
 
@@ -2196,7 +2349,7 @@ try{
 }catch(Exception e){
 }
 //traceln(String.format("%s借阅了%s",customer,this));
-Main.stat.addBorrowRecord(main.weekInTerm, customer.uid, this.book_id);
+Main.stat.addBorrowRecord(main.weekInTerm, request.thought.courseId, this.book_id,customer.uid);
 library.borrowCount++;]]></Body>
 				</Function>
 				<Function AccessType="default" StaticFunction="false">
@@ -2210,16 +2363,19 @@ library.borrowCount++;]]></Body>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Parameter>
-						<Name><![CDATA[customer]]></Name>
-						<Type><![CDATA[Customer]]></Type>
+						<Name><![CDATA[request]]></Name>
+						<Type><![CDATA[Request]]></Type>
 					</Parameter>
 					<Parameter>
 						<Name><![CDATA[days]]></Name>
 						<Type><![CDATA[int]]></Type>
 					</Parameter>
-					<Body><![CDATA[this.reserves.connect(customer.portReserve);
-this.reserveCustomers.add(customer);
-customer.libResponse.receive(new Respond(Respond.TYPE_RESERVATION,Respond.STATUS_SUCCESS,this,0,days));
+					<Body><![CDATA[this.reserves.connect(request.customer.portReserve);
+this.reserveCustomers.add(request.customer);
+Respond respond = new Respond(Respond.TYPE_RESERVATION,Respond.STATUS_SUCCESS,this,0,days);
+request.bookGet=this;
+respond.setRequest(request);
+request.customer.libResponse.receive(respond);
 for(BookInstance bi:bookInstances){
 	if(bi.borrower.getFlatLinks().size()>0){
 		BookKeeping bk = ((Customer)(bi.borrower.getFlatLinks().get(0).getAgent())).bookKeeping;
@@ -2227,7 +2383,7 @@ for(BookInstance bi:bookInstances){
 	}
 }
 //traceln(String.format("%s预约了%s",customer,this));
-Main.stat.addReservationRecord(main.weekInTerm, customer.uid);
+Main.stat.addReservationRecord(main.weekInTerm, request.customer.uid);
 library.reserveCount++;]]></Body>
 				</Function>
 				<Function AccessType="default" StaticFunction="false">
@@ -2505,7 +2661,7 @@ library.returnCount++;]]></Body>
                         <EmbeddedIcon>false</EmbeddedIcon>	
 						<TextColor/>
 						<Enabled>true</Enabled>
-						<ActionCode><![CDATA[if(insShowIndex<0||insShowIndex>=bookInstances.size()-1){
+						<ActionCode><![CDATA[if(insShowIndex<0||insShowIndex>=bookInstances.size()){
 	return;
 }
 bookInstances.get(insShowIndex).viewArea.navigateTo();]]></ActionCode>
@@ -3833,7 +3989,7 @@ agent.requestsToLib.clear();]]></Code>
                         <EmbeddedIcon>false</EmbeddedIcon>	
 						<TextColor/>
 						<Enabled>true</Enabled>
-						<ActionCode><![CDATA[if(bookShowIndex<0||bookShowIndex>=books.size()-1){
+						<ActionCode><![CDATA[if(bookShowIndex<0||bookShowIndex>=books.size()){
 	return;
 }
 books.get(bookShowIndex).viewArea.navigateTo();]]></ActionCode>
@@ -4366,6 +4522,21 @@ books.get(bookShowIndex).viewArea.navigateTo();]]></ActionCode>
 					</Properties>
 
 				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1723621153210</Id>
+					<Name><![CDATA[reserves]]></Name>
+					<X>500</X><Y>960</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[Request]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+					</Properties>
+
+				</Variable>
 			</Variables>
 			<Ports>
 				<Port>
@@ -4431,7 +4602,10 @@ books.get(bookShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<IncomingMessageType><![CDATA[Object]]></IncomingMessageType>
 					<OutgoingMessageType><![CDATA[Object]]></OutgoingMessageType>
 					<CustomPort><![CDATA[false]]></CustomPort>
-					<OnReceiveAction><![CDATA[requestsToLib.add(new Request(Request.TYPE_GET,this,(Book)msg));]]></OnReceiveAction>
+					<OnReceiveAction><![CDATA[//requestsToLib.add(new Request(Request.TYPE_GET,this,(Book)msg));
+Request req = findFirst(reserves, r->r.bookGet.equals(msg));
+reserves.remove(req);
+requestsToLib.add(req);]]></OnReceiveAction>
 				</Port>
 			</Ports>
 			<StatechartElements>
@@ -5067,6 +5241,7 @@ return sum;]]></Body>
 						<Type><![CDATA[Respond]]></Type>
 					</Parameter>
 					<Body><![CDATA[Book book = response.getBook();
+/*/
 for(Thought t:thoughts){
 	boolean flag = false;
 	for(BookWithWeight bww:t.bookWithWeights){
@@ -5082,7 +5257,12 @@ for(Thought t:thoughts){
 		t.eFreqnRatio*=0.9;
 		Main.stat.addBorrowRecordByCourse(main.weekInTerm, t.courseId);
 	}
-}]]></Body>
+}//*/
+findFirst(bookWithWeights, b->b.bookId==book.book_id).keeping=1;
+findAll(thoughts,t->t.equals(response.getRequest().thought)).forEach((t)->{
+	t.eFreqnRatio*=0.9;
+});
+Main.stat.addBorrowRecordByCourse(main.weekInTerm, response.getRequest().thought.courseId);]]></Body>
 				</Function>
 				<Function AccessType="default" StaticFunction="false">
 					<ReturnModificator>VOID</ReturnModificator>
@@ -5098,7 +5278,9 @@ for(Thought t:thoughts){
 						<Name><![CDATA[response]]></Name>
 						<Type><![CDATA[Respond]]></Type>
 					</Parameter>
-					<Body><![CDATA[//none]]></Body>
+					<Body><![CDATA[//none
+response.getRequest().type=Request.TYPE_GET;
+reserves.add(response.getRequest());]]></Body>
 				</Function>
 				<Function AccessType="default" StaticFunction="false">
 					<ReturnModificator>VOID</ReturnModificator>
@@ -5115,13 +5297,15 @@ for(Thought t:thoughts){
 						<Type><![CDATA[Respond]]></Type>
 					</Parameter>
 					<Body><![CDATA[Book book = response.getBook();
+/*/
 for(Thought t:thoughts){
 	for(BookWithWeight bww:t.bookWithWeights){
 		if(bww.book.equals(book)){
 			bww.keeping = 0;
 		}
 	}
-}]]></Body>
+}//*/
+findFirst(bookWithWeights, b->b.bookId==book.book_id).keeping=0;]]></Body>
 				</Function>
 				<Function AccessType="default" StaticFunction="false">
 					<ReturnModificator>VOID</ReturnModificator>
@@ -5462,6 +5646,208 @@ traceln(msg);]]></Body>
 						</Item>	
 					</ParameterToDatabaseColumnMapping>
 				</EmbeddedObject>
+				<EmbeddedObject>
+					<Id>1723607971040</Id>
+					<Name><![CDATA[bookWithWeights]]></Name>
+					<X>250</X><Y>570</Y>
+					<Label><X>15</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<PresentationId>1723607973471</PresentationId>
+					<ActiveObjectClass>
+						<PackageName><![CDATA[librarys]]></PackageName>
+						<ClassName><![CDATA[BookWithWeight]]></ClassName>
+					</ActiveObjectClass>
+					<GenericParameterSubstitute>
+						<GenericParameterSubstituteReference>
+							<PackageName><![CDATA[librarys]]></PackageName>
+							<ClassName><![CDATA[BookWithWeight]]></ClassName>
+							<ItemName><![CDATA[1723096089746]]></ItemName>
+						</GenericParameterSubstituteReference>
+					</GenericParameterSubstitute>
+					<Parameters>
+						<Parameter>
+							<Name><![CDATA[initialWeight]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[bookId]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[keeping]]></Name>
+						</Parameter>
+					</Parameters>
+					<ReplicationFlag>true</ReplicationFlag>
+					<Replication Class="CodeValue">
+						<Code><![CDATA[100]]></Code>
+					</Replication>
+					<CollectionType>ARRAY_LIST_BASED</CollectionType>
+					<InEnvironment>true</InEnvironment>	
+					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<XCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</XCode>
+					<YCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</YCode>
+					<ZCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</ZCode>
+					<ColumnCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</ColumnCode>
+					<RowCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</RowCode>
+					<LatitudeCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</LatitudeCode>
+					<LongitudeCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</LongitudeCode>
+					<LocationNameCode Class="CodeValue">
+						<Code><![CDATA[""]]></Code>
+					</LocationNameCode>
+					<InitializationType>LOAD_FROM_DATABASE</InitializationType>
+					<InitializationDatabaseTableQuery>
+						<TableReference>
+							<PackageName><![CDATA[librarys]]></PackageName>
+							<ClassName><![CDATA[书籍库存]]></ClassName>
+						</TableReference>
+					</InitializationDatabaseTableQuery>
+					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
+					<QuantityColumn>
+					</QuantityColumn>
+					<ParameterToDatabaseColumnMapping>
+						<Item>
+							<Key>
+								<PackageName><![CDATA[librarys]]></PackageName>
+								<ClassName><![CDATA[BookWithWeight]]></ClassName>
+								<ItemName><![CDATA[initialWeight]]></ItemName>
+							</Key>
+							<Value>
+								<PackageName><![CDATA[librarys]]></PackageName>
+								<ClassName><![CDATA[书籍库存]]></ClassName>
+								<ItemName><![CDATA[总借阅时长]]></ItemName>
+							</Value>
+						</Item>
+						<Item>
+							<Key>
+								<PackageName><![CDATA[librarys]]></PackageName>
+								<ClassName><![CDATA[BookWithWeight]]></ClassName>
+								<ItemName><![CDATA[bookId]]></ItemName>
+							</Key>
+							<Value>
+								<PackageName><![CDATA[librarys]]></PackageName>
+								<ClassName><![CDATA[书籍库存]]></ClassName>
+								<ItemName><![CDATA[书目编号]]></ItemName>
+							</Value>
+						</Item>	
+					</ParameterToDatabaseColumnMapping>
+				</EmbeddedObject>
+				<EmbeddedObject>
+					<Id>1723625688733</Id>
+					<Name><![CDATA[thought]]></Name>
+					<X>250</X><Y>410</Y>
+					<Label><X>15</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<ActiveObjectClass>
+						<PackageName><![CDATA[librarys]]></PackageName>
+						<ClassName><![CDATA[Thought]]></ClassName>
+					</ActiveObjectClass>
+					<GenericParameterSubstitute>
+						<GenericParameterSubstituteReference>
+							<PackageName><![CDATA[librarys]]></PackageName>
+							<ClassName><![CDATA[Thought]]></ClassName>
+							<ItemName><![CDATA[1723095880307]]></ItemName>
+						</GenericParameterSubstituteReference>
+					</GenericParameterSubstitute>
+					<Parameters>
+						<Parameter>
+							<Name><![CDATA[haveCourse]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[courseId]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[term]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[courseName]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[credit]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[weightBeforeTotal]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[timeDuring]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[weightInTotal]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[weightAfterTotal]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[timeTotal]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[eFreqn]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[eFreqnRatio]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[uid]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[0]]></Code>
+							</Value>
+						</Parameter>
+					</Parameters>
+					<ReplicationFlag>false</ReplicationFlag>
+					<Replication Class="CodeValue">
+						<Code><![CDATA[100]]></Code>
+					</Replication>
+					<CollectionType>ARRAY_LIST_BASED</CollectionType>
+					<InEnvironment>true</InEnvironment>	
+					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<XCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</XCode>
+					<YCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</YCode>
+					<ZCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</ZCode>
+					<ColumnCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</ColumnCode>
+					<RowCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</RowCode>
+					<LatitudeCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</LatitudeCode>
+					<LongitudeCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</LongitudeCode>
+					<LocationNameCode Class="CodeValue">
+						<Code><![CDATA[""]]></Code>
+					</LocationNameCode>
+					<InitializationType>SPECIFIED_NUMBER</InitializationType>
+					<InitializationDatabaseTableQuery>
+						<TableReference>
+						</TableReference>
+					</InitializationDatabaseTableQuery>
+					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
+					<QuantityColumn>
+					</QuantityColumn>
+				</EmbeddedObject>
 			</EmbeddedObjects>
 
 			<Presentation>
@@ -5579,7 +5965,7 @@ traceln(msg);]]></Body>
                         <EmbeddedIcon>false</EmbeddedIcon>	
 						<TextColor/>
 						<Enabled>true</Enabled>
-						<ActionCode><![CDATA[if(thoughtShowIndex<0||thoughtShowIndex>=thoughts.size()-1){
+						<ActionCode><![CDATA[if(thoughtShowIndex<0||thoughtShowIndex>=thoughts.size()){
 	return;
 }
 thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
@@ -5672,6 +6058,25 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 			</Presentation>
 
 				</Group>
+				<EmbeddedObjectPresentation>
+					<Id>1723607973471</Id>
+					<Name><![CDATA[bookWithWeights_presentation]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<DrawingMode>AGENT_CURRENT_POSITION</DrawingMode>
+					<ScaleType>AUTOMATICALLY_CALCULATED</ScaleType>
+					<GISScaleForRealEmbeddedObjectPresentationSize>1000</GISScaleForRealEmbeddedObjectPresentationSize>
+					<GISScaleForFixedEmbeddedObjectPresentationSize>1000000000</GISScaleForFixedEmbeddedObjectPresentationSize>
+					<Latitude>0.0</Latitude>
+					<Longitude>0.0</Longitude>
+				</EmbeddedObjectPresentation>
 			</Presentation>
 
 				</Level>
@@ -6439,6 +6844,21 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 							<DelimeterType>NO_DELIMETER</DelimeterType>
 						</ParameterEditor>
 					</Properties>                 
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1723615117783</Id>
+					<Name><![CDATA[bookWithWeights]]></Name>
+					<X>270</X><Y>800</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[BookWithWeight]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+					</Properties>
+
 				</Variable>
 			</Variables>
 			<Dependences>
@@ -8486,6 +8906,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 						<Condition><![CDATA[false]]></Condition>
 					</Properties>
 					<Action><![CDATA[request.connect(customer.thoughtRequests);
+initialBww();
 //if(term>3){this.thought.navigateTo();}
 //traceln(String.format("eFreqn..:%s,%s,%s,%s",eFreqn,probPerDayBefore,probPerDayIn,probPerDayAfter))]]></Action>
 				</Event>
@@ -8609,6 +9030,24 @@ log(String.format("[info] Borrow request generated by customer [%s], thought [%s
 					<Body><![CDATA[if(!main.thoughtLogging){return;}
 traceln(msg);]]></Body>
 				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1723613934035</Id>
+					<Name><![CDATA[initialBww]]></Name>
+					<X>270</X><Y>750</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[List<Tuple> bwws = selectFrom(book_set).
+	where(book_set.course_id.eq(courseId)).
+	list();
+for(Tuple tup:bwws){
+	int index = tup.get(book_set.book_index);
+	bookWithWeights.add(customer.bookWithWeights.get(index-1));
+}]]></Body>
+				</Function>
 			</Functions>
 			<AgentLinks>
 				<AgentLink>
@@ -8668,7 +9107,8 @@ traceln(msg);]]></Body>
 			<EmbeddedObjects>
 				<EmbeddedObject>
 					<Id>1723271236027</Id>
-					<Name><![CDATA[bookWithWeights]]></Name>
+					<Name><![CDATA[de_bookWithWeights]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>70</X><Y>700</Y>
 					<Label><X>20</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -8731,19 +9171,8 @@ traceln(msg);]]></Body>
 					<InitializationDatabaseTableQuery>
 						<TableReference>
 							<PackageName><![CDATA[librarys]]></PackageName>
-							<ClassName><![CDATA[教材集]]></ClassName>
+							<ClassName><![CDATA[book_set]]></ClassName>
 						</TableReference>
-						<Condition>
-							<ColumnReference>
-								<PackageName><![CDATA[librarys]]></PackageName>
-								<ClassName><![CDATA[教材集]]></ClassName>
-								<ItemName><![CDATA[课程id]]></ItemName>
-							</ColumnReference>
-							<Value Class="CodeValue">
-								<Code><![CDATA[courseId]]></Code>
-							</Value>
-							<Operator>EQUALS</Operator>
-						</Condition>
 					</InitializationDatabaseTableQuery>
 					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
 					<QuantityColumn>
@@ -8753,24 +9182,24 @@ traceln(msg);]]></Body>
 							<Key>
 								<PackageName><![CDATA[librarys]]></PackageName>
 								<ClassName><![CDATA[BookWithWeight]]></ClassName>
-								<ItemName><![CDATA[initialWeight]]></ItemName>
+								<ItemName><![CDATA[bookId]]></ItemName>
 							</Key>
 							<Value>
 								<PackageName><![CDATA[librarys]]></PackageName>
-								<ClassName><![CDATA[教材集]]></ClassName>
-								<ItemName><![CDATA[初始权重]]></ItemName>
+								<ClassName><![CDATA[book_set]]></ClassName>
+								<ItemName><![CDATA[book_id]]></ItemName>
 							</Value>
 						</Item>
 						<Item>
 							<Key>
 								<PackageName><![CDATA[librarys]]></PackageName>
 								<ClassName><![CDATA[BookWithWeight]]></ClassName>
-								<ItemName><![CDATA[bookId]]></ItemName>
+								<ItemName><![CDATA[initialWeight]]></ItemName>
 							</Key>
 							<Value>
 								<PackageName><![CDATA[librarys]]></PackageName>
-								<ClassName><![CDATA[教材集]]></ClassName>
-								<ItemName><![CDATA[书目编号]]></ItemName>
+								<ClassName><![CDATA[book_set]]></ClassName>
+								<ItemName><![CDATA[weight]]></ItemName>
 							</Value>
 						</Item>	
 					</ParameterToDatabaseColumnMapping>
@@ -8892,7 +9321,7 @@ traceln(msg);]]></Body>
                         <EmbeddedIcon>false</EmbeddedIcon>	
 						<TextColor/>
 						<Enabled>true</Enabled>
-						<ActionCode><![CDATA[if(bwwShowIndex<0||bwwShowIndex>=bookWithWeights.size()-1){
+						<ActionCode><![CDATA[if(bwwShowIndex<0||bwwShowIndex>=bookWithWeights.size()){
 	return;
 }
 bookWithWeights.get(bwwShowIndex).viewArea.navigateTo();]]></ActionCode>
@@ -11062,7 +11491,7 @@ log("借书成功");]]></EntryAction>
 					<ShowLabel>true</ShowLabel>
 					<Properties Width="200" Height="30">
 						<EntryAction><![CDATA[int reserveDays = 180;
-ordered.get(0).reserveByCustomer(handling.customer, reserveDays);]]></EntryAction>
+ordered.get(0).reserveByCustomer(handling.clone(), reserveDays);]]></EntryAction>
 						<FillColor/>
 					</Properties>
 				</StatechartElement>
@@ -11581,7 +12010,7 @@ get_Library().hold.unblock();]]></Action>
 					<Properties Source="1723302171227" Target="1723303912897" Trigger="timeout">
 						<Action><![CDATA[List<Book> books = new ArrayList<>();
 List<Double> weights = new ArrayList<>();
-for(BookWithWeight bww:handling.bookWithWeights){
+for(BookWithWeight bww:handling.thought.bookWithWeights){
 	books.add(bww.book);
 	weights.add(bww.weight);
 }
@@ -12479,6 +12908,15 @@ traceln(msg);]]></Body>
 			<TableImportSettings>
 				<TableReference>
 					<PackageName><![CDATA[librarys]]></PackageName>
+					<ClassName><![CDATA[book_set]]></ClassName>
+				</TableReference>
+				<ConnectionIndex>0</ConnectionIndex>
+				<ExternalTableName><![CDATA["book_set"]]></ExternalTableName>
+				<AutoImport>false</AutoImport>
+			</TableImportSettings>
+			<TableImportSettings>
+				<TableReference>
+					<PackageName><![CDATA[librarys]]></PackageName>
 					<ClassName><![CDATA[人员]]></ClassName>
 				</TableReference>
 				<ConnectionIndex>0</ConnectionIndex>
@@ -12497,19 +12935,19 @@ traceln(msg);]]></Body>
 			<TableImportSettings>
 				<TableReference>
 					<PackageName><![CDATA[librarys]]></PackageName>
-					<ClassName><![CDATA[均值频率]]></ClassName>
+					<ClassName><![CDATA[量化相关的培养方案]]></ClassName>
 				</TableReference>
 				<ConnectionIndex>0</ConnectionIndex>
-				<ExternalTableName><![CDATA["均值频率"]]></ExternalTableName>
+				<ExternalTableName><![CDATA["量化相关的培养方案"]]></ExternalTableName>
 				<AutoImport>true</AutoImport>
 			</TableImportSettings>
 			<TableImportSettings>
 				<TableReference>
 					<PackageName><![CDATA[librarys]]></PackageName>
-					<ClassName><![CDATA[量化相关的培养方案]]></ClassName>
+					<ClassName><![CDATA[均值频率]]></ClassName>
 				</TableReference>
 				<ConnectionIndex>0</ConnectionIndex>
-				<ExternalTableName><![CDATA["量化相关的培养方案"]]></ExternalTableName>
+				<ExternalTableName><![CDATA["均值频率"]]></ExternalTableName>
 				<AutoImport>true</AutoImport>
 			</TableImportSettings>
 			<TableImportSettings>
@@ -12528,15 +12966,6 @@ traceln(msg);]]></Body>
 				</TableReference>
 				<ConnectionIndex>0</ConnectionIndex>
 				<ExternalTableName><![CDATA["周借阅次数1"]]></ExternalTableName>
-				<AutoImport>false</AutoImport>
-			</TableImportSettings>
-			<TableImportSettings>
-				<TableReference>
-					<PackageName><![CDATA[librarys]]></PackageName>
-					<ClassName><![CDATA[教材集]]></ClassName>
-				</TableReference>
-				<ConnectionIndex>0</ConnectionIndex>
-				<ExternalTableName><![CDATA["教材集"]]></ExternalTableName>
 				<AutoImport>false</AutoImport>
 			</TableImportSettings>
 			<TableImportSettings>
@@ -12923,7 +13352,7 @@ public class Request implements Serializable {
 	
 	public int type = -1;
 	public Thought thought = null;
-	public AgentArrayList<BookWithWeight> bookWithWeights = null;
+	//public AgentArrayList<BookWithWeight> bookWithWeights = null;
 	public Book bookGet = null;
 	public List<BookInstance> bookInsReturns = null;
 	public Customer customer = null;
@@ -12935,7 +13364,8 @@ public class Request implements Serializable {
     public Request(int type,Thought t) {
     	this.type=type;
     	this.thought = t;
-    	this.bookWithWeights = t.bookWithWeights;
+    	//this.bookWithWeights = t.bookWithWeights;
+    	
     	this.customer = this.thought.customer;
     }
     public Request(int type,Customer customer,Book bookGet) {
@@ -12970,9 +13400,10 @@ public class Request implements Serializable {
             cloned.thought = this.thought; // 假设Thought类也有clone方法
         }
         
+        /*/
         if (this.bookWithWeights != null) {
             cloned.bookWithWeights = this.bookWithWeights;
-        }
+        }//*/
         
         if (this.bookGet != null) {
             cloned.bookGet = this.bookGet; // 假设Book类也有clone方法
@@ -12994,7 +13425,7 @@ public class Request implements Serializable {
         StringBuilder sb = new StringBuilder("Request{");
         sb.append("type=").append(typeToString());
         sb.append(", thought=").append(thought);
-        sb.append(", bookWithWeights=").append(bookWithWeights);
+        //sb.append(", bookWithWeights=").append(bookWithWeights);
         sb.append(", bookGet=").append(bookGet);
         sb.append(", bookInsReturns=").append(bookInsReturns);
         sb.append(", customer=").append(customer);
@@ -13308,6 +13739,8 @@ public class Stat implements Serializable {
     private Map<Integer, Set<Integer>> weeklyReservationCids = new HashMap<>();
     // 存储按课程ID的借书次数
     private Map<Integer, Integer> courseBorrowCounts = new HashMap<>();
+    // 存储按顾客ID的借书次数
+    private Map<Integer, Integer> readerBorrowCounts = new HashMap<>();
     
     public void setWeeks(int weeks) {
     	for(int i=0;i<weeks;i++) {
@@ -13315,6 +13748,11 @@ public class Stat implements Serializable {
     		this.weeklyBorrowerCids.put(i,new HashSet<>());
     		this.weeklyReservationCounts.put(i,0);
     		this.weeklyReservationCids.put(i,new HashSet<>());
+    	}
+    }
+    public void setCustomers(int size) {
+    	for(int i=0;i<size;i++) {
+    		this.readerBorrowCounts.put(i,0);
     	}
     }
     public void registerCourse(int id) {
@@ -13328,9 +13766,10 @@ public class Stat implements Serializable {
      * @param bookid 书籍的ID
      * @param courseid 课程的ID
      */
-    public void addBorrowRecord(int week, int cid, int bookid) {
+    public void addBorrowRecord(int week, int cid, int bookid, int cusId) {
         weeklyBorrowCounts.put(week, weeklyBorrowCounts.getOrDefault(week, 0) + 1);
         weeklyBorrowerCids.computeIfAbsent(week, k -> new HashSet<>()).add(cid);
+        readerBorrowCounts.put(cusId, readerBorrowCounts.getOrDefault(cusId,0)+1);
     }
     public void addBorrowRecordByCourse(int week, int courseid) {
         courseBorrowCounts.put(courseid, courseBorrowCounts.getOrDefault(courseid, 0) + 1);
@@ -13390,55 +13829,65 @@ public class Stat implements Serializable {
         return courseBorrowCounts;
     }
 
+    /**
+     * 获取顾客的借阅次数
+     */
+    public List<Integer> getReaderBorrowCounts() {
+        return new ArrayList<>(readerBorrowCounts.values());
+    }
+
     // 展示
     @Override
     public String toString() {
         return "" +
-                "\n\n===周借阅量" + formatMap(weeklyBorrowCounts) +
-                "\n\n===周借阅人数" + formatMapValues(weeklyBorrowerCids) +
-                "\n\n===周预约量" + formatMap(weeklyReservationCounts) +
-                "\n\n===周预约人数" + formatMapValues(weeklyReservationCids) +
+                "\n\n===周借阅量" + formatMap(weeklyBorrowCounts,"week") +
+                "\n\n===周借阅人数" + formatMapValues(weeklyBorrowerCids,"week") +
+                "\n\n===周预约量" + formatMap(weeklyReservationCounts,"week") +
+                "\n\n===周预约人数" + formatMapValues(weeklyReservationCids,"week") +
                 "\n\n===课程-教材预约量" + formatCourseBorrowCounts() +
                 "";
     }
     
     public String toStringBorrow() {
-    	return formatMap(weeklyBorrowCounts);
+    	return formatMap(weeklyBorrowCounts,"week");
     }
     
     public String toStringBorrower() {
-    	return formatMapValuesSimple(weeklyBorrowerCids);
+    	return formatMapValuesSimple(weeklyBorrowerCids,"week");
     }
     
     public String toStringReservation() {
-    	return formatMap(weeklyReservationCounts);
+    	return formatMap(weeklyReservationCounts,"week");
     }
     
     public String toStringReservationPeople() {
-    	return formatMapValuesSimple(weeklyReservationCids);
+    	return formatMapValuesSimple(weeklyReservationCids,"week");
     }
     
     public String toStringCourseBorrow() {
     	return formatCourseBorrowCounts();
     }
+    public String toStringReaderBorrow() {
+    	return mergeLines(formatMap(readerBorrowCounts,"Cus"),5,"    ");
+    }
 
-    private String formatMap(Map<Integer, Integer> map) {
+    private String formatMap(Map<Integer, Integer> map,String tick) {
         return map.entrySet().stream()
-                   .map(entry -> "week " + String.format("%02d",entry.getKey()+1) + ": " + entry.getValue() )// + " times")
+                   .map(entry -> tick+" " + String.format("%02d",entry.getKey()+1) + ": " + entry.getValue() )// + " times")
                    .reduce((first, second) -> first + "\n" + second)
                    .orElse("");
     }
 
-    private String formatMapValues(Map<Integer, Set<Integer>> map) {
+    private String formatMapValues(Map<Integer, Set<Integer>> map,String tick) {
         return map.entrySet().stream()
-                   .map(entry -> "week " + String.format("%02d",entry.getKey()+1) + ": " + entry.getValue().size() )// + " people (" + entry.getValue() + ")")
+                   .map(entry -> tick+" " + String.format("%02d",entry.getKey()+1) + ": " + entry.getValue().size() )// + " people (" + entry.getValue() + ")")
                    .reduce((first, second) -> first + "\n" + second)
                    .orElse("");
     }
 
-    private String formatMapValuesSimple(Map<Integer, Set<Integer>> map) {
+    private String formatMapValuesSimple(Map<Integer, Set<Integer>> map,String tick) {
         return map.entrySet().stream()
-                   .map(entry -> "week " + String.format("%02d",entry.getKey()+1) + ": " + entry.getValue().size() )// + " people")
+                   .map(entry -> tick+" " + String.format("%02d",entry.getKey()+1) + ": " + entry.getValue().size() )// + " people")
                    .reduce((first, second) -> first + "\n" + second)
                    .orElse("");
     }
@@ -13451,6 +13900,37 @@ public class Stat implements Serializable {
                                    .orElse("");
     }
     
+    
+    public static String mergeLines(String input, int n,String splitString) {
+        if (input == null || input.isEmpty() || n <= 0) {
+            return "";
+        }
+
+        // 使用正则表达式处理空白行，并分割字符串
+        String[] lines = input.trim().split("\n+");
+
+        StringBuilder merged = new StringBuilder();
+        for (int i = 0; i < lines.length; i += n) {
+            // 构建每组的字符串
+            StringBuilder group = new StringBuilder();
+            for (int j = i; j < Math.min(i + n, lines.length); j++) {
+                group.append(lines[j]);
+                // 如果不是每组的最后一行，添加分隔符
+                if (j < i + n - 1) {
+                    group.append(splitString);
+                }
+            }
+            // 将合并后的行添加到结果中，并在每组之后添加换行符
+            merged.append(group).append("\n");
+        }
+
+        // 如果需要，移除最后一个换行符
+        if (merged.length() > 0 && merged.charAt(merged.length() - 1) == '\n') {
+            merged.setLength(merged.length() - 1);
+        }
+
+        return merged.toString();
+    }
     private static final long serialVersionUID = 1L;
 }]]></Text>
 		</JavaClass>
