@@ -641,7 +641,7 @@ returnCount = library.returnCount;]]></Action>
 						<Type><![CDATA[List<Integer>]]></Type>
 					</Parameter>
 					<Body><![CDATA[//traceln(String.format("%s,%s",chart,list.size()));
-for (int i=0;i<list.size();i++) {
+for (int i=0;i<list.size()&&i<chart.getCount();i++) {
     chart.get(i).setValue(list.get(i));
 }]]></Body>
 				</Function>
