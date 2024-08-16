@@ -1167,7 +1167,7 @@ for (int i=0;i<list.size()&&i<chart.getCount();i++) {
 					<ShowLabel>true</ShowLabel>
 					<Body><![CDATA[double err = 0;
 for(int i=0;i<20;i++){
-	double preValue = trueTable(i);
+	double preValue = trueTable(i+1);
 	int expValue = weeklyBorrowCounts.get(i);
 	double erri = preValue-expValue;
 	err+=erri*erri;
@@ -6135,7 +6135,8 @@ traceln(msg);]]></Body>
 						<Name><![CDATA[input]]></Name>
 						<Type><![CDATA[int]]></Type>
 					</Parameter>
-					<Body><![CDATA[switch (input) {
+					<Body><![CDATA[input+=1;
+switch (input) {
         case 1:
             return main.ww1;
         case 2:
