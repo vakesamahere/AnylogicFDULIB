@@ -956,7 +956,8 @@ refreshChartByMap(courseBorrow, courselyBorrowCounts);
 refreshChartByValues(readerBorrow, readerBorrowCounts);
 
 if(day>20*7*4){
-	pauseSimulation();
+	//pauseSimulation();
+	finishSimulation();
 }]]></Action>
 				</Event>
 				<Event>
@@ -14387,7 +14388,7 @@ main.iniChartByLength("term", Stat.terms, chart);]]></Action>
 			<Id>1723799312704</Id>
 			<Name><![CDATA[Optimization]]></Name>
 			<CommandLineArguments><![CDATA[]]></CommandLineArguments>
-			<MaximumMemory>512</MaximumMemory>
+			<MaximumMemory>16384</MaximumMemory>
 			<RandomNumberGenerationType>fixedSeed</RandomNumberGenerationType>
 			<CustomGeneratorCode>new Random()</CustomGeneratorCode>
 			<SeedValue>1</SeedValue>
@@ -14410,8 +14411,11 @@ main.iniChartByLength("term", Stat.terms, chart);]]></Action>
 					<Code><![CDATA[0]]></Code>
 				</Min>
 				<Max Class="CodeValue">
-					<Code><![CDATA[1]]></Code>
+					<Code><![CDATA[10]]></Code>
 				</Max>
+				<Step Class="CodeValue">
+					<Code><![CDATA[0.01]]></Code>
+				</Step>
 			</Parameter>
 			<Parameter>	
 				<Id>1723799633753</Id>
@@ -14423,7 +14427,7 @@ main.iniChartByLength("term", Stat.terms, chart);]]></Action>
 					<Code><![CDATA[0]]></Code>
 				</Min>
 				<Max Class="CodeValue">
-					<Code><![CDATA[1]]></Code>
+					<Code><![CDATA[10]]></Code>
 				</Max>
 			</Parameter>
 			<Parameter>	
@@ -14436,7 +14440,7 @@ main.iniChartByLength("term", Stat.terms, chart);]]></Action>
 					<Code><![CDATA[0]]></Code>
 				</Min>
 				<Max Class="CodeValue">
-					<Code><![CDATA[1]]></Code>
+					<Code><![CDATA[10]]></Code>
 				</Max>
 			</Parameter>
 			<Parameter>	
@@ -14449,7 +14453,7 @@ main.iniChartByLength("term", Stat.terms, chart);]]></Action>
 					<Code><![CDATA[0]]></Code>
 				</Min>
 				<Max Class="CodeValue">
-					<Code><![CDATA[1]]></Code>
+					<Code><![CDATA[10]]></Code>
 				</Max>
 			</Parameter>
 			<Parameter>	
@@ -14459,7 +14463,7 @@ main.iniChartByLength("term", Stat.terms, chart);]]></Action>
 					<Code><![CDATA[0]]></Code>
 				</Min>
 				<Max Class="CodeValue">
-					<Code><![CDATA[1]]></Code>
+					<Code><![CDATA[10]]></Code>
 				</Max>
 			</Parameter>
 			<Parameter>	
@@ -14469,7 +14473,7 @@ main.iniChartByLength("term", Stat.terms, chart);]]></Action>
 					<Code><![CDATA[0]]></Code>
 				</Min>
 				<Max Class="CodeValue">
-					<Code><![CDATA[1]]></Code>
+					<Code><![CDATA[10]]></Code>
 				</Max>
 			</Parameter>
 			<Parameter>	
@@ -14479,7 +14483,7 @@ main.iniChartByLength("term", Stat.terms, chart);]]></Action>
 					<Code><![CDATA[0]]></Code>
 				</Min>
 				<Max Class="CodeValue">
-					<Code><![CDATA[1]]></Code>
+					<Code><![CDATA[10]]></Code>
 				</Max>
 			</Parameter>
 			<Parameter>	
@@ -14489,7 +14493,7 @@ main.iniChartByLength("term", Stat.terms, chart);]]></Action>
 					<Code><![CDATA[0]]></Code>
 				</Min>
 				<Max Class="CodeValue">
-					<Code><![CDATA[1]]></Code>
+					<Code><![CDATA[10]]></Code>
 				</Max>
 			</Parameter>
 			<Parameter>	
@@ -14499,7 +14503,7 @@ main.iniChartByLength("term", Stat.terms, chart);]]></Action>
 					<Code><![CDATA[0]]></Code>
 				</Min>
 				<Max Class="CodeValue">
-					<Code><![CDATA[1]]></Code>
+					<Code><![CDATA[10]]></Code>
 				</Max>
 			</Parameter>
 			<Parameter>	
@@ -14509,7 +14513,7 @@ main.iniChartByLength("term", Stat.terms, chart);]]></Action>
 					<Code><![CDATA[0]]></Code>
 				</Min>
 				<Max Class="CodeValue">
-					<Code><![CDATA[1]]></Code>
+					<Code><![CDATA[10]]></Code>
 				</Max>
 			</Parameter>
 			<Parameter>	
@@ -14519,7 +14523,7 @@ main.iniChartByLength("term", Stat.terms, chart);]]></Action>
 					<Code><![CDATA[0]]></Code>
 				</Min>
 				<Max Class="CodeValue">
-					<Code><![CDATA[1]]></Code>
+					<Code><![CDATA[10]]></Code>
 				</Max>
 			</Parameter>
 			<Parameter>	
@@ -14529,7 +14533,7 @@ main.iniChartByLength("term", Stat.terms, chart);]]></Action>
 					<Code><![CDATA[0]]></Code>
 				</Min>
 				<Max Class="CodeValue">
-					<Code><![CDATA[1]]></Code>
+					<Code><![CDATA[10]]></Code>
 				</Max>
 				<Step Class="CodeValue">
 					<Code><![CDATA[0.1]]></Code>
@@ -14542,7 +14546,7 @@ main.iniChartByLength("term", Stat.terms, chart);]]></Action>
 					<Code><![CDATA[0]]></Code>
 				</Min>
 				<Max Class="CodeValue">
-					<Code><![CDATA[1]]></Code>
+					<Code><![CDATA[10]]></Code>
 				</Max>
 			</Parameter>
 			<Parameter>	
@@ -14552,7 +14556,7 @@ main.iniChartByLength("term", Stat.terms, chart);]]></Action>
 					<Code><![CDATA[0]]></Code>
 				</Min>
 				<Max Class="CodeValue">
-					<Code><![CDATA[1]]></Code>
+					<Code><![CDATA[10]]></Code>
 				</Max>
 			</Parameter>
 			<Parameter>	
@@ -14562,7 +14566,7 @@ main.iniChartByLength("term", Stat.terms, chart);]]></Action>
 					<Code><![CDATA[0]]></Code>
 				</Min>
 				<Max Class="CodeValue">
-					<Code><![CDATA[1]]></Code>
+					<Code><![CDATA[10]]></Code>
 				</Max>
 			</Parameter>
 			<Parameter>	
@@ -14572,7 +14576,7 @@ main.iniChartByLength("term", Stat.terms, chart);]]></Action>
 					<Code><![CDATA[0]]></Code>
 				</Min>
 				<Max Class="CodeValue">
-					<Code><![CDATA[1]]></Code>
+					<Code><![CDATA[10]]></Code>
 				</Max>
 			</Parameter>
 			<Parameter>	
@@ -14582,7 +14586,7 @@ main.iniChartByLength("term", Stat.terms, chart);]]></Action>
 					<Code><![CDATA[0]]></Code>
 				</Min>
 				<Max Class="CodeValue">
-					<Code><![CDATA[1]]></Code>
+					<Code><![CDATA[10]]></Code>
 				</Max>
 			</Parameter>
 			<Parameter>	
@@ -14592,7 +14596,7 @@ main.iniChartByLength("term", Stat.terms, chart);]]></Action>
 					<Code><![CDATA[0]]></Code>
 				</Min>
 				<Max Class="CodeValue">
-					<Code><![CDATA[1]]></Code>
+					<Code><![CDATA[10]]></Code>
 				</Max>
 			</Parameter>
 			<Parameter>	
@@ -14602,7 +14606,7 @@ main.iniChartByLength("term", Stat.terms, chart);]]></Action>
 					<Code><![CDATA[0]]></Code>
 				</Min>
 				<Max Class="CodeValue">
-					<Code><![CDATA[1]]></Code>
+					<Code><![CDATA[10]]></Code>
 				</Max>
 			</Parameter>
 			<Parameter>	
@@ -14612,7 +14616,7 @@ main.iniChartByLength("term", Stat.terms, chart);]]></Action>
 					<Code><![CDATA[0]]></Code>
 				</Min>
 				<Max Class="CodeValue">
-					<Code><![CDATA[1]]></Code>
+					<Code><![CDATA[10]]></Code>
 				</Max>
 			</Parameter>
 			<ObjectiveFunctionCode><![CDATA[root.resultError()]]></ObjectiveFunctionCode>
@@ -14621,7 +14625,7 @@ main.iniChartByLength("term", Stat.terms, chart);]]></Action>
 			<AllowParallelEvaluations>true</AllowParallelEvaluations>
 			<Constraint>
 				<Enabled>true</Enabled>
-				<Expression><![CDATA[Math.abs(ww1+ww2+ww3+ww4+ww5+ww6+ww7+ww8+ww9+ww10+ww11+ww12+ww13+ww14+ww15+ww16+ww17+ww18+ww19+ww20-1)]]></Expression>
+				<Expression><![CDATA[Math.abs(ww1+ww2+ww3+ww4+ww5+ww6+ww7+ww8+ww9+ww10+ww11+ww12+ww13+ww14+ww15+ww16+ww17+ww18+ww19+ww20-20)]]></Expression>
 				<Type>LESS_OR_EQUAL</Type>
 				<Bound>0.01</Bound>
 			</Constraint>
@@ -14647,7 +14651,7 @@ main.iniChartByLength("term", Stat.terms, chart);]]></Action>
 				<FinalDate><![CDATA[1730246400000]]></FinalDate>	
 				<FinalTime><![CDATA[83.0]]></FinalTime>	
 				<StopAfterIterationCount>true</StopAfterIterationCount>
-				<IterationCount>500</IterationCount>
+				<IterationCount>2</IterationCount>
 				<AutomaticStop>false</AutomaticStop>
 			</ModelTimeProperties>
 		</OptimizationExperiment>	
