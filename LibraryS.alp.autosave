@@ -7795,7 +7795,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 				<Variable Class="AuxVariable">
 					<Id>1723294788817</Id>
 					<Name><![CDATA[timeBefore]]></Name>
-					<X>720</X><Y>540</Y>
+					<X>820</X><Y>540</Y>
 					<Label><X>0</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7810,7 +7810,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 				<Variable Class="AuxVariable">
 					<Id>1723294820694</Id>
 					<Name><![CDATA[weightBefore]]></Name>
-					<X>720</X><Y>590</Y>
+					<X>820</X><Y>590</Y>
 					<Label><X>0</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7825,7 +7825,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 				<Variable Class="AuxVariable">
 					<Id>1723294852186</Id>
 					<Name><![CDATA[relWeightBefore]]></Name>
-					<X>720</X><Y>640</Y>
+					<X>820</X><Y>640</Y>
 					<Label><X>0</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7840,7 +7840,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 				<Variable Class="AuxVariable">
 					<Id>1723294877336</Id>
 					<Name><![CDATA[probPerDayBefore]]></Name>
-					<X>720</X><Y>690</Y>
+					<X>820</X><Y>690</Y>
 					<Label><X>0</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7855,7 +7855,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 				<Variable Class="AuxVariable">
 					<Id>1723294983213</Id>
 					<Name><![CDATA[weightSum]]></Name>
-					<X>670</X><Y>200</Y>
+					<X>770</X><Y>200</Y>
 					<Label><X>0</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7870,7 +7870,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 				<Variable Class="AuxVariable">
 					<Id>1723295062135</Id>
 					<Name><![CDATA[weightAvg]]></Name>
-					<X>1190</X><Y>220</Y>
+					<X>1290</X><Y>220</Y>
 					<Label><X>0</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7885,7 +7885,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 				<Variable Class="AuxVariable">
 					<Id>1723295108140</Id>
 					<Name><![CDATA[timeIn]]></Name>
-					<X>910</X><Y>540</Y>
+					<X>1010</X><Y>540</Y>
 					<Label><X>0</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7900,7 +7900,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 				<Variable Class="AuxVariable">
 					<Id>1723295216358</Id>
 					<Name><![CDATA[timeSum]]></Name>
-					<X>920</X><Y>190</Y>
+					<X>1020</X><Y>190</Y>
 					<Label><X>0</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7915,7 +7915,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 				<Variable Class="AuxVariable">
 					<Id>1723295243350</Id>
 					<Name><![CDATA[timeAfter]]></Name>
-					<X>1070</X><Y>540</Y>
+					<X>1170</X><Y>540</Y>
 					<Label><X>0</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7930,7 +7930,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 				<Variable Class="AuxVariable">
 					<Id>1723295320064</Id>
 					<Name><![CDATA[weightIn]]></Name>
-					<X>920</X><Y>590</Y>
+					<X>1020</X><Y>590</Y>
 					<Label><X>0</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7945,7 +7945,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 				<Variable Class="AuxVariable">
 					<Id>1723295349638</Id>
 					<Name><![CDATA[weightAfter]]></Name>
-					<X>1070</X><Y>590</Y>
+					<X>1170</X><Y>590</Y>
 					<Label><X>0</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7960,7 +7960,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 				<Variable Class="AuxVariable">
 					<Id>1723295402552</Id>
 					<Name><![CDATA[relWeightIn]]></Name>
-					<X>920</X><Y>640</Y>
+					<X>1020</X><Y>640</Y>
 					<Label><X>0</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7975,7 +7975,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 				<Variable Class="AuxVariable">
 					<Id>1723295420112</Id>
 					<Name><![CDATA[relWeightAfter]]></Name>
-					<X>1070</X><Y>640</Y>
+					<X>1170</X><Y>640</Y>
 					<Label><X>0</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7990,7 +7990,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 				<Variable Class="AuxVariable">
 					<Id>1723295454501</Id>
 					<Name><![CDATA[probPerDayIn]]></Name>
-					<X>920</X><Y>690</Y>
+					<X>1020</X><Y>690</Y>
 					<Label><X>0</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8005,7 +8005,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 				<Variable Class="AuxVariable">
 					<Id>1723295473230</Id>
 					<Name><![CDATA[probPerDayAfter]]></Name>
-					<X>1070</X><Y>690</Y>
+					<X>1170</X><Y>690</Y>
 					<Label><X>0</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8020,7 +8020,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 				<Variable Class="AuxVariable">
 					<Id>1723336240066</Id>
 					<Name><![CDATA[eFreqnR]]></Name>
-					<X>1320</X><Y>290</Y>
+					<X>1420</X><Y>290</Y>
 					<Label><X>0</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8035,7 +8035,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 				<Variable Class="AuxVariable">
 					<Id>1723900060296</Id>
 					<Name><![CDATA[ratioTime]]></Name>
-					<X>1400</X><Y>540</Y>
+					<X>1500</X><Y>540</Y>
 					<Label><X>0</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8050,7 +8050,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 				<Variable Class="StockVariable">
 					<Id>1723909936092</Id>
 					<Name><![CDATA[positiveRatio]]></Name>
-					<X>1600</X><Y>340</Y>
+					<X>1700</X><Y>340</Y>
 					<Label><X>0</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8066,7 +8066,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 				<Variable Class="StockVariable">
 					<Id>1723909953110</Id>
 					<Name><![CDATA[extraRatio]]></Name>
-					<X>1600</X><Y>450</Y>
+					<X>1700</X><Y>450</Y>
 					<Label><X>0</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8075,14 +8075,14 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<EquationStyle>classic</EquationStyle>
 					<Width>20</Width>
 					<Height>20</Height>
-						<InitialValue><![CDATA[0.3]]></InitialValue>
+						<InitialValue><![CDATA[0.1]]></InitialValue>
 						<Color/>
 					</Properties>
 				</Variable>
 				<Variable Class="Flow">
 					<Id>1723909977135</Id>
 					<Name><![CDATA[loss]]></Name>
-					<X>1600</X><Y>340</Y>
+					<X>1700</X><Y>340</Y>
 					<Label><X>0</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8101,7 +8101,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 				<Variable Class="Flow">
 					<Id>1723909989945</Id>
 					<Name><![CDATA[strengthen]]></Name>
-					<X>1600</X><Y>450</Y>
+					<X>1700</X><Y>450</Y>
 					<Label><X>15</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8170,7 +8170,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 				<Variable Class="Parameter">
 					<Id>1723271052373</Id>
 					<Name><![CDATA[term]]></Name>
-					<X>480</X><Y>230</Y>
+					<X>580</X><Y>230</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8242,7 +8242,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 				<Variable Class="Parameter">
 					<Id>1723294740104</Id>
 					<Name><![CDATA[weightBeforeTotal]]></Name>
-					<X>720</X><Y>490</Y>
+					<X>820</X><Y>490</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8266,7 +8266,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 				<Variable Class="Parameter">
 					<Id>1723294903669</Id>
 					<Name><![CDATA[timeDuring]]></Name>
-					<X>420</X><Y>350</Y>
+					<X>520</X><Y>350</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8290,7 +8290,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 				<Variable Class="Parameter">
 					<Id>1723295012956</Id>
 					<Name><![CDATA[weightInTotal]]></Name>
-					<X>910</X><Y>490</Y>
+					<X>1010</X><Y>490</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8314,7 +8314,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 				<Variable Class="Parameter">
 					<Id>1723295030628</Id>
 					<Name><![CDATA[weightAfterTotal]]></Name>
-					<X>1070</X><Y>490</Y>
+					<X>1170</X><Y>490</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8338,7 +8338,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 				<Variable Class="Parameter">
 					<Id>1723295648107</Id>
 					<Name><![CDATA[timeTotal]]></Name>
-					<X>1420</X><Y>340</Y>
+					<X>1520</X><Y>340</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8362,7 +8362,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 				<Variable Class="Parameter">
 					<Id>1723336333174</Id>
 					<Name><![CDATA[eFreqn]]></Name>
-					<X>1330</X><Y>210</Y>
+					<X>1430</X><Y>210</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8383,7 +8383,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 				<Variable Class="Parameter">
 					<Id>1723336349874</Id>
 					<Name><![CDATA[eFreqnRatio]]></Name>
-					<X>1410</X><Y>260</Y>
+					<X>1510</X><Y>260</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8428,7 +8428,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 				<Variable Class="Parameter">
 					<Id>1723900043054</Id>
 					<Name><![CDATA[timeTotalReal]]></Name>
-					<X>1400</X><Y>690</Y>
+					<X>1500</X><Y>690</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8452,7 +8452,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 				<Variable Class="Parameter">
 					<Id>1723912416198</Id>
 					<Name><![CDATA[s]]></Name>
-					<X>1800</X><Y>300</Y>
+					<X>1900</X><Y>300</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8497,7 +8497,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>240</X><Y>310</Y></Direction>
 					<Id>1723294801654</Id>
 					<Name><![CDATA[term - timeBefore]]></Name>
-					<X>480</X><Y>230</Y>
+					<X>580</X><Y>230</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8512,7 +8512,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>50</X><Y>390</Y></Direction>
 					<Id>1723294834688</Id>
 					<Name><![CDATA[weightSum - weightBefore]]></Name>
-					<X>670</X><Y>200</Y>
+					<X>770</X><Y>200</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8527,7 +8527,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>0</X><Y>100</Y></Direction>
 					<Id>1723294834690</Id>
 					<Name><![CDATA[weightBeforeTotal - weightBefore]]></Name>
-					<X>720</X><Y>490</Y>
+					<X>820</X><Y>490</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8542,7 +8542,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>0</X><Y>50</Y></Direction>
 					<Id>1723294834691</Id>
 					<Name><![CDATA[timeBefore - weightBefore]]></Name>
-					<X>720</X><Y>540</Y>
+					<X>820</X><Y>540</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8557,7 +8557,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>0</X><Y>50</Y></Direction>
 					<Id>1723294863288</Id>
 					<Name><![CDATA[weightBefore - relWeightBefore]]></Name>
-					<X>720</X><Y>590</Y>
+					<X>820</X><Y>590</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8572,7 +8572,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>-470</X><Y>420</Y></Direction>
 					<Id>1723294863293</Id>
 					<Name><![CDATA[weightAvg - relWeightBefore]]></Name>
-					<X>1190</X><Y>220</Y>
+					<X>1290</X><Y>220</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8587,7 +8587,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>-600</X><Y>400</Y></Direction>
 					<Id>1723294890300</Id>
 					<Name><![CDATA[eFreqnR - probPerDayBefore]]></Name>
-					<X>1320</X><Y>290</Y>
+					<X>1420</X><Y>290</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8602,7 +8602,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>0</X><Y>50</Y></Direction>
 					<Id>1723294890301</Id>
 					<Name><![CDATA[relWeightBefore - probPerDayBefore]]></Name>
-					<X>720</X><Y>640</Y>
+					<X>820</X><Y>640</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8617,7 +8617,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>-50</X><Y>-290</Y></Direction>
 					<Id>1723295001370</Id>
 					<Name><![CDATA[weightBeforeTotal - weightSum]]></Name>
-					<X>720</X><Y>490</Y>
+					<X>820</X><Y>490</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8632,7 +8632,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>-240</X><Y>-290</Y></Direction>
 					<Id>1723295001373</Id>
 					<Name><![CDATA[weightInTotal - weightSum]]></Name>
-					<X>910</X><Y>490</Y>
+					<X>1010</X><Y>490</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8647,7 +8647,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>-400</X><Y>-290</Y></Direction>
 					<Id>1723295001374</Id>
 					<Name><![CDATA[weightAfterTotal - weightSum]]></Name>
-					<X>1070</X><Y>490</Y>
+					<X>1170</X><Y>490</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8662,7 +8662,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>270</X><Y>30</Y></Direction>
 					<Id>1723295076044</Id>
 					<Name><![CDATA[timeSum - weightAvg]]></Name>
-					<X>920</X><Y>190</Y>
+					<X>1020</X><Y>190</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8677,7 +8677,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>490</X><Y>190</Y></Direction>
 					<Id>1723295122088</Id>
 					<Name><![CDATA[timeDuring - timeIn]]></Name>
-					<X>420</X><Y>350</Y>
+					<X>520</X><Y>350</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8692,7 +8692,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>590</X><Y>310</Y></Direction>
 					<Id>1723295254234</Id>
 					<Name><![CDATA[term - timeAfter]]></Name>
-					<X>480</X><Y>230</Y>
+					<X>580</X><Y>230</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8707,7 +8707,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>-150</X><Y>-350</Y></Direction>
 					<Id>1723295258862</Id>
 					<Name><![CDATA[timeAfter - timeSum]]></Name>
-					<X>1070</X><Y>540</Y>
+					<X>1170</X><Y>540</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8722,7 +8722,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>200</X><Y>-350</Y></Direction>
 					<Id>1723295258863</Id>
 					<Name><![CDATA[timeBefore - timeSum]]></Name>
-					<X>720</X><Y>540</Y>
+					<X>820</X><Y>540</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8737,7 +8737,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>10</X><Y>-350</Y></Direction>
 					<Id>1723295258864</Id>
 					<Name><![CDATA[timeIn - timeSum]]></Name>
-					<X>910</X><Y>540</Y>
+					<X>1010</X><Y>540</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8752,7 +8752,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>10</X><Y>50</Y></Direction>
 					<Id>1723295342081</Id>
 					<Name><![CDATA[timeIn - weightIn]]></Name>
-					<X>910</X><Y>540</Y>
+					<X>1010</X><Y>540</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8767,7 +8767,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>10</X><Y>100</Y></Direction>
 					<Id>1723295342083</Id>
 					<Name><![CDATA[weightInTotal - weightIn]]></Name>
-					<X>910</X><Y>490</Y>
+					<X>1010</X><Y>490</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8782,7 +8782,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>250</X><Y>390</Y></Direction>
 					<Id>1723295342084</Id>
 					<Name><![CDATA[weightSum - weightIn]]></Name>
-					<X>670</X><Y>200</Y>
+					<X>770</X><Y>200</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8797,7 +8797,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>0</X><Y>50</Y></Direction>
 					<Id>1723295360393</Id>
 					<Name><![CDATA[timeAfter - weightAfter]]></Name>
-					<X>1070</X><Y>540</Y>
+					<X>1170</X><Y>540</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8812,7 +8812,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>0</X><Y>100</Y></Direction>
 					<Id>1723295360395</Id>
 					<Name><![CDATA[weightAfterTotal - weightAfter]]></Name>
-					<X>1070</X><Y>490</Y>
+					<X>1170</X><Y>490</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8827,7 +8827,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>400</X><Y>390</Y></Direction>
 					<Id>1723295360396</Id>
 					<Name><![CDATA[weightSum - weightAfter]]></Name>
-					<X>670</X><Y>200</Y>
+					<X>770</X><Y>200</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8842,7 +8842,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>0</X><Y>50</Y></Direction>
 					<Id>1723295412492</Id>
 					<Name><![CDATA[weightIn - relWeightIn]]></Name>
-					<X>920</X><Y>590</Y>
+					<X>1020</X><Y>590</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8857,7 +8857,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>-270</X><Y>420</Y></Direction>
 					<Id>1723295412496</Id>
 					<Name><![CDATA[weightAvg - relWeightIn]]></Name>
-					<X>1190</X><Y>220</Y>
+					<X>1290</X><Y>220</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8872,7 +8872,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>0</X><Y>50</Y></Direction>
 					<Id>1723295432298</Id>
 					<Name><![CDATA[weightAfter - relWeightAfter]]></Name>
-					<X>1070</X><Y>590</Y>
+					<X>1170</X><Y>590</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8887,7 +8887,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>-120</X><Y>420</Y></Direction>
 					<Id>1723295432299</Id>
 					<Name><![CDATA[weightAvg - relWeightAfter]]></Name>
-					<X>1190</X><Y>220</Y>
+					<X>1290</X><Y>220</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8902,7 +8902,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>-400</X><Y>400</Y></Direction>
 					<Id>1723295465782</Id>
 					<Name><![CDATA[eFreqnR - probPerDayIn]]></Name>
-					<X>1320</X><Y>290</Y>
+					<X>1420</X><Y>290</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8917,7 +8917,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>0</X><Y>50</Y></Direction>
 					<Id>1723295465784</Id>
 					<Name><![CDATA[relWeightIn - probPerDayIn]]></Name>
-					<X>920</X><Y>640</Y>
+					<X>1020</X><Y>640</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8932,7 +8932,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>-250</X><Y>400</Y></Direction>
 					<Id>1723295485415</Id>
 					<Name><![CDATA[eFreqnR - probPerDayAfter]]></Name>
-					<X>1320</X><Y>290</Y>
+					<X>1420</X><Y>290</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8947,7 +8947,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>0</X><Y>50</Y></Direction>
 					<Id>1723295485417</Id>
 					<Name><![CDATA[relWeightAfter - probPerDayAfter]]></Name>
-					<X>1070</X><Y>640</Y>
+					<X>1170</X><Y>640</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8962,7 +8962,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>-350</X><Y>200</Y></Direction>
 					<Id>1723295678912</Id>
 					<Name><![CDATA[timeTotal - timeAfter]]></Name>
-					<X>1420</X><Y>340</Y>
+					<X>1520</X><Y>340</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8977,7 +8977,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>0</X><Y>150</Y></Direction>
 					<Id>1723325341978</Id>
 					<Name><![CDATA[timeBefore - probPerDayBefore]]></Name>
-					<X>720</X><Y>540</Y>
+					<X>820</X><Y>540</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8992,7 +8992,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>0</X><Y>150</Y></Direction>
 					<Id>1723325365688</Id>
 					<Name><![CDATA[timeAfter - probPerDayAfter]]></Name>
-					<X>1070</X><Y>540</Y>
+					<X>1170</X><Y>540</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -9007,7 +9007,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>-90</X><Y>30</Y></Direction>
 					<Id>1723336372783</Id>
 					<Name><![CDATA[eFreqnRatio - eFreqnR]]></Name>
-					<X>1410</X><Y>260</Y>
+					<X>1510</X><Y>260</Y>
 					<Label><X>40</X><Y>-50</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -9022,7 +9022,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>-10</X><Y>80</Y></Direction>
 					<Id>1723336418476</Id>
 					<Name><![CDATA[eFreqn - eFreqnR]]></Name>
-					<X>1330</X><Y>210</Y>
+					<X>1430</X><Y>210</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -9037,7 +9037,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>-20</X><Y>200</Y></Direction>
 					<Id>1723900083515</Id>
 					<Name><![CDATA[timeTotal - ratioTime]]></Name>
-					<X>1420</X><Y>340</Y>
+					<X>1520</X><Y>340</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -9052,7 +9052,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>0</X><Y>-150</Y></Direction>
 					<Id>1723900083516</Id>
 					<Name><![CDATA[timeTotalReal - ratioTime]]></Name>
-					<X>1400</X><Y>690</Y>
+					<X>1500</X><Y>690</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -9067,7 +9067,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>-330</X><Y>150</Y></Direction>
 					<Id>1723900118998</Id>
 					<Name><![CDATA[ratioTime - probPerDayAfter]]></Name>
-					<X>1400</X><Y>540</Y>
+					<X>1500</X><Y>540</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -9082,7 +9082,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>-480</X><Y>150</Y></Direction>
 					<Id>1723900123826</Id>
 					<Name><![CDATA[ratioTime - probPerDayIn]]></Name>
-					<X>1400</X><Y>540</Y>
+					<X>1500</X><Y>540</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -9097,7 +9097,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>-680</X><Y>150</Y></Direction>
 					<Id>1723900127566</Id>
 					<Name><![CDATA[ratioTime - probPerDayBefore]]></Name>
-					<X>1400</X><Y>540</Y>
+					<X>1500</X><Y>540</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -9112,7 +9112,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>0</X><Y>55</Y></Direction>
 					<Id>1723912071851</Id>
 					<Name><![CDATA[positiveRatio - loss]]></Name>
-					<X>1600</X><Y>340</Y>
+					<X>1700</X><Y>340</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -9127,7 +9127,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>50</X><Y>0</Y></Direction>
 					<Id>1723912430195</Id>
 					<Name><![CDATA[extraRatio - strengthen]]></Name>
-					<X>1600</X><Y>450</Y>
+					<X>1700</X><Y>450</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -9142,7 +9142,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>-150</X><Y>150</Y></Direction>
 					<Id>1723912430196</Id>
 					<Name><![CDATA[s - strengthen]]></Name>
-					<X>1800</X><Y>300</Y>
+					<X>1900</X><Y>300</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -9157,7 +9157,7 @@ thoughts.get(thoughtShowIndex).viewArea.navigateTo();]]></ActionCode>
 					<Direction><X>-280</X><Y>-50</Y></Direction>
 					<Id>1723928483081</Id>
 					<Name><![CDATA[positiveRatio - eFreqnR]]></Name>
-					<X>1600</X><Y>340</Y>
+					<X>1700</X><Y>340</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -10679,7 +10679,7 @@ initialBww();
 				<DynamicEventClass>
 					<Id>1723912385226</Id>
 					<Name><![CDATA[Strengthen]]></Name>
-					<X>1600</X><Y>200</Y>
+					<X>1700</X><Y>200</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -10829,7 +10829,7 @@ for(Tuple tup:bwws){
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1723912003209</Id>
 					<Name><![CDATA[strenghtenedByClassmate]]></Name>
-					<X>1600</X><Y>250</Y>
+					<X>1700</X><Y>250</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
